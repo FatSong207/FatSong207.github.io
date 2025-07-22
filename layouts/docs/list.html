@@ -12,12 +12,14 @@
       <div id="article-content">
         {{ .Content }}
         
+        {{ if ne .Params.hide_page_list true }}
         <h2>文章列表</h2>
         <ul>
         {{ range .Pages }}
           <li><a href="{{ .Permalink }}">{{ .Title }}</a> - <time>{{ .Date.Format "2006-01-02" }}</time></li>
         {{ end }}
         </ul>
+        {{ end }}
       </div>
     </article>
     {{ if .Params.toc }}

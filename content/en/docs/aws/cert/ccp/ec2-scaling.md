@@ -1,3 +1,11 @@
+---
+title: "EC2 擴展"
+weight: 7
+date: 2025-07-22
+description: "Amazon EC2 Auto Scaling 完整指南，包含自動擴展原理、設定方法及使用場景。"
+toc: true
+---
+
 # Amazon EC2 Auto Scaling 完整指南
 
 ## 🎯 什麼是 Auto Scaling？

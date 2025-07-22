@@ -22,10 +22,6 @@
       name: "EC2 擴展"
     - title: "aws/cert/ccp/elb"
       name: "ELB"
-    # - title: "aws/cert/ccp/technology"
-    #   name: "技術"
-    # - title: "aws/cert/ccp/billing-pricing"
-    #   name: "計費與定價"
     - title: "aws/cert/ccp/feed-back"
       name: "CCP 考試心得回饋"
 

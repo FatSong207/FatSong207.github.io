@@ -12,9 +12,9 @@ languages:
     languageName: English
     languageCode: en-US
     contentDir: content/en
-    title: 紀錄一些瑣碎事
+    title: 湯姆隨手記
     params:
-      description: 可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事。
+      description: 記錄一下工作成長。
 
 services:
   googleAnalytics:

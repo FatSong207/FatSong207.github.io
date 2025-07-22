@@ -1,3 +1,11 @@
+---
+title: "EC2 計費"
+weight: 6
+date: 2025-07-22
+description: "Amazon EC2 定價模式比較，包含隨需、預留、Spot 等不同計費方式的優缺點。"
+toc: true
+---
+
 # Amazon EC2 定價模式比較
 
 ## 定價模式總覽

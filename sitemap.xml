@@ -2,47 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://fatsong207.github.io/docs/aws/elb/application-load-balancer/</loc>
+    <loc>http://localhost:1313/docs/aws/elb/application-load-balancer/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/</loc>
+    <loc>http://localhost:1313/docs/aws/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/cert/ccp/</loc>
+    <loc>http://localhost:1313/docs/aws/cert/ccp/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/cert/</loc>
+    <loc>http://localhost:1313/docs/aws/cert/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/ec2/</loc>
+    <loc>http://localhost:1313/docs/aws/ec2/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/ec2/instance-types/</loc>
+    <loc>http://localhost:1313/docs/aws/ec2/instance-types/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/cert/ccp/cloud-concepts/</loc>
+    <loc>http://localhost:1313/docs/aws/cert/ccp/cloud-concepts/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/about-me/</loc>
+    <loc>http://localhost:1313/docs/about-me/</loc>
     <lastmod>2025-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/ec2/security-groups/</loc>
+    <loc>http://localhost:1313/docs/aws/ec2/security-groups/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/elb/</loc>
+    <loc>http://localhost:1313/docs/aws/elb/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/aws/elb/network-load-balancer/</loc>
+    <loc>http://localhost:1313/docs/aws/elb/network-load-balancer/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/docs/</loc>
+    <loc>http://localhost:1313/docs/aws/cert/ccp/ec2-instance-types/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/</loc>
+    <loc>http://localhost:1313/docs/aws/cert/ccp/ec2-pricing/</loc>
     <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/categories/</loc>
+    <loc>http://localhost:1313/docs/aws/cert/ccp/ec2-scaling/</loc>
+    <lastmod>2025-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fatsong207.github.io/tags/</loc>
+    <loc>http://localhost:1313/docs/aws/cert/ccp/feed-back/</loc>
+    <lastmod>2025-07-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/</loc>
+    <lastmod>2025-07-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-07-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/aws/cert/ccp/elb/</loc>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
