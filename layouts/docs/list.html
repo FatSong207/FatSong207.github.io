@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div id="site-main-content-wrapper">
+  {{ partial "sidebar" . }}
+  <main>
+    <article id="article">
+      <header id="article-header">
+        <h1>{{ .Title }}</h1>
+      </header>
+      <div id="article-content">
+        {{ .Content }}
+        
+        <h2>文章列表</h2>
+        <ul>
+        {{ range .Pages }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a> - <time>{{ .Date.Format "2006-01-02" }}</time></li>
+        {{ end }}
+        </ul>
+      </div>
+    </article>
+  </main>
+</div>
+{{ end }}
