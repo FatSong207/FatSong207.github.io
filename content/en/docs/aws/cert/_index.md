@@ -3,6 +3,7 @@ title: "AWS 認證"
 weight: 1
 date: 2025-07-22
 description: "AWS 認證考試準備過程記錄，從基礎到專業級別的學習筆記和考試經驗分享。"
+toc: true
 ---
 
 # AWS 認證之路 🏆

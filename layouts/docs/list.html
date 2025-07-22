@@ -3,6 +3,9 @@
   {{ partial "sidebar" . }}
   <main>
     <article id="article">
+      {{ if .Params.toc }}
+      {{ partial "article-nav" . }}
+      {{ end }}
       <header id="article-header">
         <h1>{{ .Title }}</h1>
       </header>
@@ -17,6 +20,9 @@
         </ul>
       </div>
     </article>
+    {{ if .Params.toc }}
+    {{ partial "toc" . }}
+    {{ end }}
   </main>
 </div>
 {{ end }}
