@@ -1,4 +1,5 @@
 baseURL: 'https://fatsong207.github.io'
+publishDir: '.'
 theme: docura
 
 enableGitInfo: false
