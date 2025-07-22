@@ -12,9 +12,9 @@ languages:
     languageName: English
     languageCode: en-US
     contentDir: content/en
-    title: 一些瑣碎件
+    title: 一些瑣碎事，記錄一下吧
     params:
-      description: Your Site Description
+      description: 可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事，一起分享。
 
 services:
   googleAnalytics:
@@ -39,7 +39,7 @@ params:
 
   years:
     start: ''
-    present: 2023
+    present: 2025
 
   social:
     github: 'FatSong207'
@@ -63,18 +63,18 @@ params:
 
   home:
 
-    repository: 'your/repo'
+#    repository: 'FatSong207/FatSong207.github.io'
 
-#    repositories:
-#      - name: Website
-#        repo: org/site
-#        icon: "<i class='icon icon-book'></i>"
-#        description: The repository of the website
-#
-#      - name: Code
-#        repo: org/project
-#        icon: "<i class='icon icon-book'></i>"
-#        description: The repository of the project
+    repositories:
+      - name: 個人網站
+        repo: FatSong207/FatSong207.github.io
+        icon: "<i class='icon icon-home'></i>"
+        description: 使用 Hugo 建立的個人網站，記錄工作與學習心得
+      
+      - name: 其他專案
+        repo: FatSong207/other-project
+        icon: "<i class='icon icon-code'></i>"
+        description: 其他開源專案（如果有的話）
 
 menu:
   main:
