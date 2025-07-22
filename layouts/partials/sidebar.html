@@ -10,9 +10,11 @@
   <span class="btn-close"><i class="icon icon-close"></i></span>
 
   <div class="sticky">
-    {{- range $group := $data -}}
-      <strong class="sidebar-section">{{ $group.title }}</strong>
-
+    {{- range $groupIndex, $group := $data -}}
+      {{- $sectionId := printf "section-%d" $groupIndex -}}
+      {{- $hasActivePages := false -}}
+      {{- $currentPath := $.RelPermalink -}}
+      
       {{- range $index, $page := $group.pages -}}
         {{- $pageSlug := "" -}}
         {{- if $page.slug -}}
@@ -20,35 +22,229 @@
         {{- else -}}
           {{- $pageSlug = $page.title | urlize -}}
         {{- end -}}
-        {{- $isActivePage := eq $urlPageSlug $pageSlug -}}
+        
+        {{- if eq $currentLang $defaultLang -}}
+          {{- if eq $pageSlug "" -}}
+            {{- $href := printf "/%s/" $.Section -}}
+            {{- if eq $currentPath $href -}}
+              {{- $hasActivePages = true -}}
+            {{- end -}}
+          {{- else -}}
+            {{- $href := printf "/%s/%s/" $.Section $pageSlug -}}
+            {{- if hasPrefix $currentPath $href -}}
+              {{- $hasActivePages = true -}}
+            {{- end -}}
+          {{- end -}}
+        {{- else -}}
+          {{- if eq $pageSlug "" -}}
+            {{- $href := printf "/%s/%s/" $currentLang $.Section -}}
+            {{- if eq $currentPath $href -}}
+              {{- $hasActivePages = true -}}
+            {{- end -}}
+          {{- else -}}
+            {{- $href := printf "/%s/%s/%s/" $currentLang $.Section $pageSlug -}}
+            {{- if hasPrefix $currentPath $href -}}
+              {{- $hasActivePages = true -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      
+      <div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible {{ if $hasActivePages }}active-section{{ end }}" data-target="{{ $sectionId }}">
+          <span class="section-title-wrapper">
+            {{ if gt (len $group.pages) 0 }}
+              <i class="icon icon-book section-icon"></i>
+            {{ end }}
+            {{ $group.title }}
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="{{ $sectionId }}" class="sidebar-pages {{ if and (ne $group.title "開始使用") (not $hasActivePages) }}collapsed{{ end }}">
+          {{- range $index, $page := $group.pages -}}
+            {{- $pageSlug := "" -}}
+            {{- if $page.slug -}}
+              {{- $pageSlug = $page.slug -}}
+            {{- else -}}
+              {{- $pageSlug = $page.title | urlize -}}
+            {{- end -}}
+            
+            {{- $isActivePage := false -}}
+            {{- if eq $currentLang $defaultLang -}}
+              {{- if eq $pageSlug "" -}}
+                {{- $href := printf "/%s/" $.Section -}}
+                {{- if eq $currentPath $href -}}
+                  {{- $isActivePage = true -}}
+                {{- end -}}
+              {{- else -}}
+                {{- $href := printf "/%s/%s/" $.Section $pageSlug -}}
+                {{- if eq $currentPath $href -}}
+                  {{- $isActivePage = true -}}
+                {{- end -}}
+              {{- end -}}
+            {{- else -}}
+              {{- if eq $pageSlug "" -}}
+                {{- $href := printf "/%s/%s/" $currentLang $.Section -}}
+                {{- if eq $currentPath $href -}}
+                  {{- $isActivePage = true -}}
+                {{- end -}}
+              {{- else -}}
+                {{- $href := printf "/%s/%s/%s/" $currentLang $.Section $pageSlug -}}
+                {{- if eq $currentPath $href -}}
+                  {{- $isActivePage = true -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
 
-        {{ if eq $currentLang $defaultLang }}
-          {{ if eq $pageSlug "" }}
-            {{ $href := printf "/%s/" $.Section }}
-            <a class="sidebar-link {{ if $isActivePage }}current{{ end }}" href="{{ $href }}">
-              {{ $page.title }}
-            </a>
-          {{ else }}
-            {{ $href := printf "/%s/%s/" $.Section $pageSlug }}
-            <a class="sidebar-link {{ if $isActivePage }}current{{ end }}" href="{{ $href }}">
-              {{ $page.title }}
-            </a>
-          {{ end }}
-        {{ else }}
-          {{ if eq $pageSlug "" }}
-            {{ $href := printf "/%s/%s/" $currentLang $.Section }}
-            <a class="sidebar-link {{ if $isActivePage }}current{{ end }}" href="{{ $href }}">
-              {{ $page.title }}
-            </a>
-          {{ else }}
-            {{ $href := printf "/%s/%s/%s/" $currentLang $.Section $pageSlug }}
-            <a class="sidebar-link {{ if $isActivePage }}current{{ end }}" href="{{ $href }}">
-              {{ $page.title }}
-            </a>
-          {{ end }}
-        {{ end }}
-      {{- end }}
-
+            {{ if eq $currentLang $defaultLang }}
+              {{ if eq $pageSlug "" }}
+                {{ $href := printf "/%s/" $.Section }}
+                <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
+                  {{ $page.title }}
+                </a>
+              {{ else }}
+                {{ $href := printf "/%s/%s/" $.Section $pageSlug }}
+                <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
+                  {{ $page.title }}
+                </a>
+              {{ end }}
+            {{ else }}
+              {{ if eq $pageSlug "" }}
+                {{ $href := printf "/%s/%s/" $currentLang $.Section }}
+                <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
+                  {{ $page.title }}
+                </a>
+              {{ else }}
+                {{ $href := printf "/%s/%s/%s/" $currentLang $.Section $pageSlug }}
+                <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
+                  {{ $page.title }}
+                </a>
+              {{ end }}
+            {{ end }}
+          {{- end }}
+        </div>
+      </div>
     {{- end }}
   </div>
 </aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      // Toggle aria-expanded attribute
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      // Toggle collapsed class
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    // Set initial aria-expanded state
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>

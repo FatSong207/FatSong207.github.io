@@ -1,211 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>紀錄一些瑣碎事</title><link>https://fatsong207.github.io/</link><description>Recent content on 紀錄一些瑣碎事</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 22 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fatsong207.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Application Load Balancer 設定</title><link>https://fatsong207.github.io/docs/aws/elb/application-load-balancer/</link><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate><guid>https://fatsong207.github.io/docs/aws/elb/application-load-balancer/</guid><description>&lt;h1 id="application-load-balancer-alb-設定">Application Load Balancer (ALB) 設定&lt;/h1>
-&lt;h2 id="什麼是-alb">什麼是 ALB？&lt;/h2>
-&lt;p>Application Load Balancer 工作在 OSI 第 7 層 (應用層)，可以根據 HTTP/HTTPS 請求內容進行路由。&lt;/p>
-&lt;h2 id="主要功能">主要功能&lt;/h2>
-&lt;h3 id="路徑基礎路由">路徑基礎路由&lt;/h3>
-&lt;pre tabindex="0">&lt;code>example.com/api/* → API 伺服器群組
-example.com/web/* → Web 伺服器群組
-&lt;/code>&lt;/pre>&lt;h3 id="host-基礎路由">Host 基礎路由&lt;/h3>
-&lt;pre tabindex="0">&lt;code>api.example.com → API 伺服器群組
-www.example.com → Web 伺服器群組
-&lt;/code>&lt;/pre>&lt;h2 id="設定步驟">設定步驟&lt;/h2>
-&lt;h3 id="1-建立目標群組-target-group">1. 建立目標群組 (Target Group)&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 透過 AWS CLI 建立目標群組&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">aws elbv2 create-target-group &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --name my-app-targets &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --protocol HTTP &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --port &lt;span class="m">80&lt;/span> &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --vpc-id vpc-12345678
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-註冊目標實例">2. 註冊目標實例&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 將 EC2 實例註冊到目標群組&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">aws elbv2 register-targets &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --target-group-arn arn:aws:elasticloadbalancing:region:account:targetgroup/my-app-targets &lt;span class="se">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --targets &lt;span class="nv">Id&lt;/span>&lt;span class="o">=&lt;/span>i-1234567890abcdef0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-建立-load-balancer">3. 建立 Load Balancer&lt;/h3>
-&lt;ul>
-&lt;li>選擇子網路 (至少兩個 AZ)&lt;/li>
-&lt;li>配置安全群組&lt;/li>
-&lt;li>設定監聽器規則&lt;/li>
-&lt;/ul>
-&lt;h2 id="健康檢查設定">健康檢查設定&lt;/h2>
-&lt;pre tabindex="0">&lt;code>健康檢查路徑: /health
-檢查間隔: 30 秒
-逾時時間: 5 秒
-健康閾值: 2
-不健康閾值: 5
-&lt;/code>&lt;/pre>&lt;h2 id="最佳實務">最佳實務&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>多 AZ 部署&lt;/strong> - 至少兩個可用區域&lt;/li>
-&lt;li>&lt;strong>適當的健康檢查&lt;/strong> - 確保檢查端點能反映應用狀態&lt;/li>
-&lt;li>&lt;strong>SSL 終止&lt;/strong> - 在 ALB 層級處理 SSL&lt;/li>
-&lt;li>&lt;strong>監控設定&lt;/strong> - 啟用 CloudWatch 指標&lt;/li>
-&lt;/ol></description></item><item><title>EC2 實例類型選擇</title><link>https://fatsong207.github.io/docs/aws/ec2/instance-types/</link><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate><guid>https://fatsong207.github.io/docs/aws/ec2/instance-types/</guid><description>&lt;h1 id="ec2-實例類型選擇指南">EC2 實例類型選擇指南&lt;/h1>
-&lt;h2 id="常見的實例類型">常見的實例類型&lt;/h2>
-&lt;h3 id="通用型-general-purpose">通用型 (General Purpose)&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>t3.micro&lt;/strong> - 適合輕量級工作負載&lt;/li>
-&lt;li>&lt;strong>m5.large&lt;/strong> - 平衡的運算、記憶體和網路資源&lt;/li>
-&lt;/ul>
-&lt;h3 id="運算優化-compute-optimized">運算優化 (Compute Optimized)&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>c5.large&lt;/strong> - 高效能處理器，適合 CPU 密集型應用&lt;/li>
-&lt;/ul>
-&lt;h3 id="記憶體優化-memory-optimized">記憶體優化 (Memory Optimized)&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>r5.large&lt;/strong> - 記憶體密集型應用&lt;/li>
-&lt;/ul>
-&lt;h2 id="如何選擇">如何選擇&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>評估工作負載需求&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>考慮成本效益&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>監控效能指標&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>適時調整大小&lt;/strong>&lt;/li>
-&lt;/ol>
-&lt;h2 id="實際經驗">實際經驗&lt;/h2>
-&lt;p>在選擇實例類型時，建議從小規格開始，根據實際使用情況逐步調整。&lt;/p></description></item><item><title>我的第一篇文章</title><link>https://fatsong207.github.io/docs/my-first-post/</link><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate><guid>https://fatsong207.github.io/docs/my-first-post/</guid><description>&lt;h1 id="歡迎來到我的第一篇文章">歡迎來到我的第一篇文章&lt;/h1>
-&lt;p>這是一個範例文章，展示如何在 Hugo 網站中添加內容。&lt;/p>
-&lt;h2 id="功能特點">功能特點&lt;/h2>
-&lt;ul>
-&lt;li>支援 Markdown 語法&lt;/li>
-&lt;li>可以添加程式碼區塊&lt;/li>
-&lt;li>支援數學公式&lt;/li>
-&lt;li>可以插入圖片和連結&lt;/li>
-&lt;/ul>
-&lt;h2 id="程式碼範例">程式碼範例&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">hello_world&lt;/span>&lt;span class="p">():&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello, World\!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="s2">&amp;#34;歡迎使用 Hugo\!&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">hello_world&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="列表">列表&lt;/h2>
-&lt;h3 id="有序列表">有序列表&lt;/h3>
-&lt;ol>
-&lt;li>第一項&lt;/li>
-&lt;li>第二項&lt;/li>
-&lt;li>第三項&lt;/li>
-&lt;/ol>
-&lt;h3 id="無序列表">無序列表&lt;/h3>
-&lt;ul>
-&lt;li>項目 A&lt;/li>
-&lt;li>項目 B&lt;/li>
-&lt;li>項目 C&lt;/li>
-&lt;/ul>
-&lt;h2 id="連結和引用">連結和引用&lt;/h2>
-&lt;p>你可以訪問 &lt;a href="https://gohugo.io/">Hugo 官方網站&lt;/a> 了解更多資訊。&lt;/p>
-&lt;blockquote>
-&lt;p>這是一個引用區塊，可以用來突出重要內容。&lt;/p>&lt;/blockquote>
-&lt;hr>
-&lt;p>這就是如何在 Hugo 中創建內容的基本方法！
-EOF &amp;lt; /dev/null&lt;/p></description></item><item><title>EC2 安全群組設定</title><link>https://fatsong207.github.io/docs/aws/ec2/security-groups/</link><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate><guid>https://fatsong207.github.io/docs/aws/ec2/security-groups/</guid><description>&lt;h1 id="ec2-安全群組設定">EC2 安全群組設定&lt;/h1>
-&lt;h2 id="什麼是安全群組">什麼是安全群組？&lt;/h2>
-&lt;p>安全群組作為虛擬防火牆，控制 EC2 實例的入站和出站流量。&lt;/p>
-&lt;h2 id="基本原則">基本原則&lt;/h2>
-&lt;h3 id="預設設定">預設設定&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>入站規則&lt;/strong>: 預設拒絕所有流量&lt;/li>
-&lt;li>&lt;strong>出站規則&lt;/strong>: 預設允許所有流量&lt;/li>
-&lt;/ul>
-&lt;h3 id="常見設定">常見設定&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># SSH 存取 (22 port)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Type: SSH
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Protocol: TCP
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Port: &lt;span class="m">22&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Source: My IP &lt;span class="o">(&lt;/span>你的 IP 位址&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># HTTP 存取 (80 port)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Type: HTTP
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Protocol: TCP
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Port: &lt;span class="m">80&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Source: 0.0.0.0/0 &lt;span class="o">(&lt;/span>所有 IP&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># HTTPS 存取 (443 port)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Type: HTTPS
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Protocol: TCP
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Port: &lt;span class="m">443&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Source: 0.0.0.0/0 &lt;span class="o">(&lt;/span>所有 IP&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="最佳實務">最佳實務&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>最小權限原則&lt;/strong> - 只開放必要的 port&lt;/li>
-&lt;li>&lt;strong>限制來源 IP&lt;/strong> - 避免使用 0.0.0.0/0 除非必要&lt;/li>
-&lt;li>&lt;strong>定期檢視規則&lt;/strong> - 移除不需要的規則&lt;/li>
-&lt;li>&lt;strong>使用描述&lt;/strong> - 為每個規則添加說明&lt;/li>
-&lt;/ol>
-&lt;h2 id="常見問題">常見問題&lt;/h2>
-&lt;h3 id="無法-ssh-連線">無法 SSH 連線&lt;/h3>
-&lt;p>檢查安全群組是否開放 22 port，並確認來源 IP 設定正確。&lt;/p></description></item><item><title>Network Load Balancer 設定</title><link>https://fatsong207.github.io/docs/aws/elb/network-load-balancer/</link><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate><guid>https://fatsong207.github.io/docs/aws/elb/network-load-balancer/</guid><description>&lt;h1 id="network-load-balancer-nlb-設定">Network Load Balancer (NLB) 設定&lt;/h1>
-&lt;h2 id="什麼是-nlb">什麼是 NLB？&lt;/h2>
-&lt;p>Network Load Balancer 工作在 OSI 第 4 層 (傳輸層)，提供極高效能的 TCP/UDP 流量分發。&lt;/p>
-&lt;h2 id="主要特色">主要特色&lt;/h2>
-&lt;h3 id="超高效能">超高效能&lt;/h3>
-&lt;ul>
-&lt;li>每秒處理數百萬請求&lt;/li>
-&lt;li>極低延遲&lt;/li>
-&lt;li>靜態 IP 支援&lt;/li>
-&lt;/ul>
-&lt;h3 id="協定支援">協定支援&lt;/h3>
-&lt;ul>
-&lt;li>TCP&lt;/li>
-&lt;li>UDP&lt;/li>
-&lt;li>TLS&lt;/li>
-&lt;/ul>
-&lt;h2 id="適用場景">適用場景&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>高效能需求&lt;/strong> - 需要極低延遲的應用&lt;/li>
-&lt;li>&lt;strong>靜態 IP&lt;/strong> - 需要固定 IP 位址的場景&lt;/li>
-&lt;li>&lt;strong>非 HTTP 協定&lt;/strong> - TCP/UDP 應用程式&lt;/li>
-&lt;li>&lt;strong>極大流量&lt;/strong> - 每秒數百萬連線&lt;/li>
-&lt;/ol>
-&lt;h2 id="設定注意事項">設定注意事項&lt;/h2>
-&lt;h3 id="健康檢查">健康檢查&lt;/h3>
-&lt;pre tabindex="0">&lt;code>TCP 健康檢查: 檢查 TCP 連線是否成功
-HTTP 健康檢查: 可選，提供更詳細的健康狀態
-&lt;/code>&lt;/pre>&lt;h3 id="目標類型">目標類型&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>實例&lt;/strong> - EC2 實例&lt;/li>
-&lt;li>&lt;strong>IP&lt;/strong> - 特定 IP 地址 (可跨 VPC)&lt;/li>
-&lt;li>&lt;strong>Lambda&lt;/strong> - Lambda 函數&lt;/li>
-&lt;/ul>
-&lt;h2 id="與-alb-的比較">與 ALB 的比較&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>功能&lt;/th>
- &lt;th>NLB&lt;/th>
- &lt;th>ALB&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>OSI 層級&lt;/td>
- &lt;td>Layer 4&lt;/td>
- &lt;td>Layer 7&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>協定&lt;/td>
- &lt;td>TCP/UDP/TLS&lt;/td>
- &lt;td>HTTP/HTTPS&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>效能&lt;/td>
- &lt;td>極高&lt;/td>
- &lt;td>高&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>路由能力&lt;/td>
- &lt;td>基礎&lt;/td>
- &lt;td>進階&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>成本&lt;/td>
- &lt;td>較低&lt;/td>
- &lt;td>較高&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="最佳實務">最佳實務&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>選擇合適的目標類型&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>配置適當的健康檢查&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>考慮跨區域負載平衡&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>監控連線指標&lt;/strong>&lt;/li>
-&lt;/ol></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>紀錄一些瑣碎事</title>
+    <link>http://localhost:52275/</link>
+    <description>Recent content on 紀錄一些瑣碎事</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 22 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:52275/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Application Load Balancer 設定</title>
+      <link>http://localhost:52275/docs/aws/elb/application-load-balancer/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52275/docs/aws/elb/application-load-balancer/</guid>
+      <description>&lt;h1 id=&#34;application-load-balancer-alb-設定&#34;&gt;Application Load Balancer (ALB) 設定&lt;/h1&gt;&#xA;&lt;h2 id=&#34;什麼是-alb&#34;&gt;什麼是 ALB？&lt;/h2&gt;&#xA;&lt;p&gt;Application Load Balancer 工作在 OSI 第 7 層 (應用層)，可以根據 HTTP/HTTPS 請求內容進行路由。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要功能&#34;&gt;主要功能&lt;/h2&gt;&#xA;&lt;h3 id=&#34;路徑基礎路由&#34;&gt;路徑基礎路由&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;example.com/api/* → API 伺服器群組&#xA;example.com/web/* → Web 伺服器群組&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;host-基礎路由&#34;&gt;Host 基礎路由&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;api.example.com → API 伺服器群組&#xA;www.example.com → Web 伺服器群組&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;設定步驟&#34;&gt;設定步驟&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-建立目標群組-target-group&#34;&gt;1. 建立目標群組 (Target Group)&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 透過 AWS CLI 建立目標群組&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws elbv2 create-target-group &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name my-app-targets &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --protocol HTTP &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --port &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --vpc-id vpc-12345678&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-註冊目標實例&#34;&gt;2. 註冊目標實例&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 將 EC2 實例註冊到目標群組&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws elbv2 register-targets &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --target-group-arn arn:aws:elasticloadbalancing:region:account:targetgroup/my-app-targets &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --targets &lt;span class=&#34;nv&#34;&gt;Id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;i-1234567890abcdef0&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-建立-load-balancer&#34;&gt;3. 建立 Load Balancer&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;選擇子網路 (至少兩個 AZ)&lt;/li&gt;&#xA;&lt;li&gt;配置安全群組&lt;/li&gt;&#xA;&lt;li&gt;設定監聽器規則&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;健康檢查設定&#34;&gt;健康檢查設定&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;健康檢查路徑: /health&#xA;檢查間隔: 30 秒&#xA;逾時時間: 5 秒&#xA;健康閾值: 2&#xA;不健康閾值: 5&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;最佳實務&#34;&gt;最佳實務&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;多 AZ 部署&lt;/strong&gt; - 至少兩個可用區域&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;適當的健康檢查&lt;/strong&gt; - 確保檢查端點能反映應用狀態&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;SSL 終止&lt;/strong&gt; - 在 ALB 層級處理 SSL&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;監控設定&lt;/strong&gt; - 啟用 CloudWatch 指標&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>EC2 實例類型選擇</title>
+      <link>http://localhost:52275/docs/aws/ec2/instance-types/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52275/docs/aws/ec2/instance-types/</guid>
+      <description>&lt;h1 id=&#34;ec2-實例類型選擇指南&#34;&gt;EC2 實例類型選擇指南&lt;/h1&gt;&#xA;&lt;h2 id=&#34;常見的實例類型&#34;&gt;常見的實例類型&lt;/h2&gt;&#xA;&lt;h3 id=&#34;通用型-general-purpose&#34;&gt;通用型 (General Purpose)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;t3.micro&lt;/strong&gt; - 適合輕量級工作負載&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;m5.large&lt;/strong&gt; - 平衡的運算、記憶體和網路資源&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;運算優化-compute-optimized&#34;&gt;運算優化 (Compute Optimized)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;c5.large&lt;/strong&gt; - 高效能處理器，適合 CPU 密集型應用&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;記憶體優化-memory-optimized&#34;&gt;記憶體優化 (Memory Optimized)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;r5.large&lt;/strong&gt; - 記憶體密集型應用&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;如何選擇&#34;&gt;如何選擇&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;評估工作負載需求&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;考慮成本效益&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;監控效能指標&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;適時調整大小&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;實際經驗&#34;&gt;實際經驗&lt;/h2&gt;&#xA;&lt;p&gt;在選擇實例類型時，建議從小規格開始，根據實際使用情況逐步調整。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://localhost:52275/docs/my-first-post/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52275/docs/my-first-post/</guid>
+      <description>&lt;h1 id=&#34;歡迎來到我的第一篇文章&#34;&gt;歡迎來到我的第一篇文章&lt;/h1&gt;&#xA;&lt;p&gt;這是一個範例文章，展示如何在 Hugo 網站中添加內容。&lt;/p&gt;&#xA;&lt;h2 id=&#34;功能特點&#34;&gt;功能特點&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;支援 Markdown 語法&lt;/li&gt;&#xA;&lt;li&gt;可以添加程式碼區塊&lt;/li&gt;&#xA;&lt;li&gt;支援數學公式&lt;/li&gt;&#xA;&lt;li&gt;可以插入圖片和連結&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;程式碼範例&#34;&gt;程式碼範例&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;hello_world&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World\!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;歡迎使用 Hugo\!&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;hello_world&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;列表&#34;&gt;列表&lt;/h2&gt;&#xA;&lt;h3 id=&#34;有序列表&#34;&gt;有序列表&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;第一項&lt;/li&gt;&#xA;&lt;li&gt;第二項&lt;/li&gt;&#xA;&lt;li&gt;第三項&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;無序列表&#34;&gt;無序列表&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;項目 A&lt;/li&gt;&#xA;&lt;li&gt;項目 B&lt;/li&gt;&#xA;&lt;li&gt;項目 C&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;連結和引用&#34;&gt;連結和引用&lt;/h2&gt;&#xA;&lt;p&gt;你可以訪問 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo 官方網站&lt;/a&gt; 了解更多資訊。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;這是一個引用區塊，可以用來突出重要內容。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;這就是如何在 Hugo 中創建內容的基本方法！&#xA;EOF &amp;lt; /dev/null&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>EC2 安全群組設定</title>
+      <link>http://localhost:52275/docs/aws/ec2/security-groups/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52275/docs/aws/ec2/security-groups/</guid>
+      <description>&lt;h1 id=&#34;ec2-安全群組設定&#34;&gt;EC2 安全群組設定&lt;/h1&gt;&#xA;&lt;h2 id=&#34;什麼是安全群組&#34;&gt;什麼是安全群組？&lt;/h2&gt;&#xA;&lt;p&gt;安全群組作為虛擬防火牆，控制 EC2 實例的入站和出站流量。&lt;/p&gt;&#xA;&lt;h2 id=&#34;基本原則&#34;&gt;基本原則&lt;/h2&gt;&#xA;&lt;h3 id=&#34;預設設定&#34;&gt;預設設定&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;入站規則&lt;/strong&gt;: 預設拒絕所有流量&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;出站規則&lt;/strong&gt;: 預設允許所有流量&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;常見設定&#34;&gt;常見設定&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# SSH 存取 (22 port)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type: SSH&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Protocol: TCP&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Port: &lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Source: My IP &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;你的 IP 位址&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# HTTP 存取 (80 port)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type: HTTP&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Protocol: TCP&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Port: &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Source: 0.0.0.0/0 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;所有 IP&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# HTTPS 存取 (443 port)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type: HTTPS&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Protocol: TCP&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Port: &lt;span class=&#34;m&#34;&gt;443&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Source: 0.0.0.0/0 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;所有 IP&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;最佳實務&#34;&gt;最佳實務&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;最小權限原則&lt;/strong&gt; - 只開放必要的 port&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;限制來源 IP&lt;/strong&gt; - 避免使用 0.0.0.0/0 除非必要&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;定期檢視規則&lt;/strong&gt; - 移除不需要的規則&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;使用描述&lt;/strong&gt; - 為每個規則添加說明&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;常見問題&#34;&gt;常見問題&lt;/h2&gt;&#xA;&lt;h3 id=&#34;無法-ssh-連線&#34;&gt;無法 SSH 連線&lt;/h3&gt;&#xA;&lt;p&gt;檢查安全群組是否開放 22 port，並確認來源 IP 設定正確。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Network Load Balancer 設定</title>
+      <link>http://localhost:52275/docs/aws/elb/network-load-balancer/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52275/docs/aws/elb/network-load-balancer/</guid>
+      <description>&lt;h1 id=&#34;network-load-balancer-nlb-設定&#34;&gt;Network Load Balancer (NLB) 設定&lt;/h1&gt;&#xA;&lt;h2 id=&#34;什麼是-nlb&#34;&gt;什麼是 NLB？&lt;/h2&gt;&#xA;&lt;p&gt;Network Load Balancer 工作在 OSI 第 4 層 (傳輸層)，提供極高效能的 TCP/UDP 流量分發。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要特色&#34;&gt;主要特色&lt;/h2&gt;&#xA;&lt;h3 id=&#34;超高效能&#34;&gt;超高效能&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;每秒處理數百萬請求&lt;/li&gt;&#xA;&lt;li&gt;極低延遲&lt;/li&gt;&#xA;&lt;li&gt;靜態 IP 支援&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;協定支援&#34;&gt;協定支援&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;TCP&lt;/li&gt;&#xA;&lt;li&gt;UDP&lt;/li&gt;&#xA;&lt;li&gt;TLS&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;適用場景&#34;&gt;適用場景&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;高效能需求&lt;/strong&gt; - 需要極低延遲的應用&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;靜態 IP&lt;/strong&gt; - 需要固定 IP 位址的場景&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;非 HTTP 協定&lt;/strong&gt; - TCP/UDP 應用程式&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;極大流量&lt;/strong&gt; - 每秒數百萬連線&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;設定注意事項&#34;&gt;設定注意事項&lt;/h2&gt;&#xA;&lt;h3 id=&#34;健康檢查&#34;&gt;健康檢查&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;TCP 健康檢查: 檢查 TCP 連線是否成功&#xA;HTTP 健康檢查: 可選，提供更詳細的健康狀態&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;目標類型&#34;&gt;目標類型&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;實例&lt;/strong&gt; - EC2 實例&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;IP&lt;/strong&gt; - 特定 IP 地址 (可跨 VPC)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Lambda&lt;/strong&gt; - Lambda 函數&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;與-alb-的比較&#34;&gt;與 ALB 的比較&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;功能&lt;/th&gt;&#xA;          &lt;th&gt;NLB&lt;/th&gt;&#xA;          &lt;th&gt;ALB&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;OSI 層級&lt;/td&gt;&#xA;          &lt;td&gt;Layer 4&lt;/td&gt;&#xA;          &lt;td&gt;Layer 7&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;協定&lt;/td&gt;&#xA;          &lt;td&gt;TCP/UDP/TLS&lt;/td&gt;&#xA;          &lt;td&gt;HTTP/HTTPS&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;效能&lt;/td&gt;&#xA;          &lt;td&gt;極高&lt;/td&gt;&#xA;          &lt;td&gt;高&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;路由能力&lt;/td&gt;&#xA;          &lt;td&gt;基礎&lt;/td&gt;&#xA;          &lt;td&gt;進階&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;成本&lt;/td&gt;&#xA;          &lt;td&gt;較低&lt;/td&gt;&#xA;          &lt;td&gt;較高&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;最佳實務&#34;&gt;最佳實務&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;選擇合適的目標類型&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;配置適當的健康檢查&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;考慮跨區域負載平衡&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;監控連線指標&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

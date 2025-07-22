@@ -5,7 +5,7 @@
 - title: "AWS"
   pages:
     - title: "aws"
-    - title: "ec2/instance-types"
-    - title: "ec2/security-groups"
-    - title: "elb/application-load-balancer"
-    - title: "elb/network-load-balancer"
+    - title: "aws/ec2/instance-types"
+    - title: "aws/ec2/security-groups"
+    - title: "aws/elb/application-load-balancer"
+    - title: "aws/elb/network-load-balancer"

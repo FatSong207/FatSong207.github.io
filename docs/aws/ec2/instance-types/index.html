@@ -1,14 +1,505 @@
-<!doctype html><html lang=en-US><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事。"><meta name=author content="Tom"><title>EC2 實例類型選擇 · 紀錄一些瑣碎事</title><link rel=canonical href=https://fatsong207.github.io/docs/aws/ec2/instance-types/><link rel=stylesheet href=/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css integrity><link rel=preconnect href=https://-dsn.algolia.net crossorigin><link rel=stylesheet href=/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css integrity><link rel=manifest href=/manifest.json><link rel=icon href=/img/icon/favicon.ico><link rel=icon href=/img/icon/icon-16.png sizes=16x16 type=image/png><link rel=icon href=/img/icon/icon-32.png sizes=32x32 type=image/png><link rel=apple-touch-icon href=/img/icon/icon-180.png sizes=180x180><meta name=theme-color content="#ffffff" media="(prefers-color-scheme: light)"><meta name=theme-color content="#121212" media="(prefers-color-scheme: dark)"><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XXXXXXXXXX")</script></head><body><header id=site-header><div id=site-header-brand><a href=/>紀錄一些瑣碎事</a></div><div id=site-header-controls><div class=dropdown><button class=dropdown-btn aria-haspopup=menu aria-label="theme selector">
-<i class="icon icon-brightness"></i>
-<i class="icon icon-select"></i></button><ul role=menu class=dropdown-menu><li role=menuitem><button class=color-scheme data-value=light><i class="icon icon-light-mode"></i> Light</button></li><li role=menuitem><button class=color-scheme data-value=dark><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li><li role=menuitem><button class=color-scheme data-value=night><i class="icon icon-night-mode"></i> Night</button></li></ul></div><div class=dropdown><button class=dropdown-btn aria-haspopup=menu aria-label="language selector">
-<i class="icon icon-translate"></i>
-<i class="icon icon-select"></i></button><ul role=menu class=dropdown-menu><li role=menuitem><a href=#>English</a></li></ul></div></div><div id=site-header-menu><nav><ul><li><a href=/><i class='icon icon-home'></i>Home</a></li><li><a href=/docs class=active><i class='icon icon-book'></i>Docs</a></li></ul></nav></div><div id=site-header-search></div></header><div id=site-main-content-wrapper><aside id=sidebar><span class=btn-close><i class="icon icon-close"></i></span><div class=sticky><strong class=sidebar-section>開始使用</strong>
-<a class=sidebar-link href=/docs/my-first-post/>my-first-post
-</a><strong class=sidebar-section>AWS</strong>
-<a class=sidebar-link href=/docs/aws/>aws
-</a><a class=sidebar-link href=/docs/ec2/instance-types/>ec2/instance-types
-</a><a class=sidebar-link href=/docs/ec2/security-groups/>ec2/security-groups
-</a><a class=sidebar-link href=/docs/elb/application-load-balancer/>elb/application-load-balancer
-</a><a class=sidebar-link href=/docs/elb/network-load-balancer/>elb/network-load-balancer</a></div></aside><main><article id=article><nav id=article-nav><button id=article-nav-menu-btn><i class="icon icon-menu"></i> On this section</button>
-<button id=article-nav-toc-btn><i class="icon icon-toc"></i> On this page</button></nav><header id=article-header><h1>EC2 實例類型選擇</h1></header><div id=article-content><h1 id=ec2-實例類型選擇指南>EC2 實例類型選擇指南</h1><h2 id=常見的實例類型>常見的實例類型</h2><h3 id=通用型-general-purpose>通用型 (General Purpose)</h3><ul><li><strong>t3.micro</strong> - 適合輕量級工作負載</li><li><strong>m5.large</strong> - 平衡的運算、記憶體和網路資源</li></ul><h3 id=運算優化-compute-optimized>運算優化 (Compute Optimized)</h3><ul><li><strong>c5.large</strong> - 高效能處理器，適合 CPU 密集型應用</li></ul><h3 id=記憶體優化-memory-optimized>記憶體優化 (Memory Optimized)</h3><ul><li><strong>r5.large</strong> - 記憶體密集型應用</li></ul><h2 id=如何選擇>如何選擇</h2><ol><li><strong>評估工作負載需求</strong></li><li><strong>考慮成本效益</strong></li><li><strong>監控效能指標</strong></li><li><strong>適時調整大小</strong></li></ol><h2 id=實際經驗>實際經驗</h2><p>在選擇實例類型時，建議從小規格開始，根據實際使用情況逐步調整。</p></div><footer id=article-footer><time id=article-last-updated datetime=2025-07-22><i class="icon icon-calendar"></i>&nbsp;Last updated: 2025-07-22</time>
-<a id=article-prev-link href=/docs/elb/network-load-balancer/><i class="icon icon-prev icon-colored"></i> Prev</a></footer></article><aside id=toc><span class=btn-close><i class="icon icon-close"></i></span><div class=sticky><strong><i class="icon icon-toc"></i> On this page</strong><nav id=TableOfContents><ul><li><a href=#常見的實例類型>常見的實例類型</a><ul><li><a href=#通用型-general-purpose>通用型 (General Purpose)</a></li><li><a href=#運算優化-compute-optimized>運算優化 (Compute Optimized)</a></li><li><a href=#記憶體優化-memory-optimized>記憶體優化 (Memory Optimized)</a></li></ul></li><li><a href=#如何選擇>如何選擇</a></li><li><a href=#實際經驗>實際經驗</a></li></ul></nav></div></aside></main></div><footer id=site-footer><div id=site-footer-copyright><a href=https://FatSong207.com target=_blank><i class="icon icon-copyright"></i> 2025 Tom</a></div><div id=site-footer-social><a href=https://github.com/FatSong207 target=_blank aria-label="github url"><i class="icon icon-github icon-colored"></i></a></div><div id=site-footer-fund></div><div id=site-footer-love>Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href=https://docura.github.io/ target=_blank>Docura</a></div></footer><script type=text/javascript src=/js/base.min.js></script><script src=/js/component/docsearch.min.js></script><script type=application/javascript>docsearch({container:"#site-header-search",appId:"",indexName:"",apiKey:""})</script><script type=application/javascript>"serviceWorker"in navigator&&navigator.serviceWorker.register("/sw.js?2025-07-22").catch(function(e){console.error("ServiceWorker registration failed: ",e)})</script></body></html>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事。">
+<meta name="author" content="Tom">
+
+<title>EC2 實例類型選擇 · 紀錄一些瑣碎事</title>
+
+<link rel="canonical" href="http://localhost:1313/docs/aws/ec2/instance-types/">
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css" integrity="">
+
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">紀錄一些瑣碎事</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Docs</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    
+
+
+<aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            開始使用
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-0" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/my-first-post/">
+                  my-first-post
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-1" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/">
+                  aws
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link current active-link" href="/docs/aws/ec2/instance-types/">
+                  aws/ec2/instance-types
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/ec2/security-groups/">
+                  aws/ec2/security-groups
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/elb/application-load-balancer/">
+                  aws/elb/application-load-balancer
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/elb/network-load-balancer/">
+                  aws/elb/network-load-balancer
+                </a>
+              
+            
+        </div>
+      </div>
+  </div>
+</aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  <button id="article-nav-toc-btn"><i class="icon icon-toc"></i> On this page</button>
+</nav>
+      <header id="article-header">
+  <h1>EC2 實例類型選擇</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="ec2-實例類型選擇指南">EC2 實例類型選擇指南</h1>
+<h2 id="常見的實例類型">常見的實例類型</h2>
+<h3 id="通用型-general-purpose">通用型 (General Purpose)</h3>
+<ul>
+<li><strong>t3.micro</strong> - 適合輕量級工作負載</li>
+<li><strong>m5.large</strong> - 平衡的運算、記憶體和網路資源</li>
+</ul>
+<h3 id="運算優化-compute-optimized">運算優化 (Compute Optimized)</h3>
+<ul>
+<li><strong>c5.large</strong> - 高效能處理器，適合 CPU 密集型應用</li>
+</ul>
+<h3 id="記憶體優化-memory-optimized">記憶體優化 (Memory Optimized)</h3>
+<ul>
+<li><strong>r5.large</strong> - 記憶體密集型應用</li>
+</ul>
+<h2 id="如何選擇">如何選擇</h2>
+<ol>
+<li><strong>評估工作負載需求</strong></li>
+<li><strong>考慮成本效益</strong></li>
+<li><strong>監控效能指標</strong></li>
+<li><strong>適時調整大小</strong></li>
+</ol>
+<h2 id="實際經驗">實際經驗</h2>
+<p>在選擇實例類型時，建議從小規格開始，根據實際使用情況逐步調整。</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2025-07-22"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2025-07-22</time>
+
+  
+    <a id="article-prev-link" href="/docs/aws/elb/network-load-balancer/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#常見的實例類型">常見的實例類型</a>
+      <ul>
+        <li><a href="#通用型-general-purpose">通用型 (General Purpose)</a></li>
+        <li><a href="#運算優化-compute-optimized">運算優化 (Compute Optimized)</a></li>
+        <li><a href="#記憶體優化-memory-optimized">記憶體優化 (Memory Optimized)</a></li>
+      </ul>
+    </li>
+    <li><a href="#如何選擇">如何選擇</a></li>
+    <li><a href="#實際經驗">實際經驗</a></li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://FatSong207.com" target="_blank">
+      <i class="icon icon-copyright"></i> 2025 Tom
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/FatSong207" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2025-07-22')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>
