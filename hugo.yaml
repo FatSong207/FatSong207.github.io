@@ -12,9 +12,9 @@ languages:
     languageName: English
     languageCode: en-US
     contentDir: content/en
-    title: 一些瑣碎事，記錄一下吧
+    title: 紀錄一些瑣碎事
     params:
-      description: 可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事，一起分享。
+      description: 可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事。
 
 services:
   googleAnalytics:
@@ -34,8 +34,8 @@ params:
     url: https://FatSong207.com
 
   themeColors:
-    light: '#ffffff'
-    dark: '#121212'
+    light: '#FFF8DC'  # 淡奶茶色 (cornsilk)
+    dark: '#2D2520'   # 深咖啡色配合奶茶主題
 
   years:
     start: ''
