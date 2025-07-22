@@ -61,20 +61,8 @@ description: "AWS 認證考試準備過程記錄，從基礎到專業級別的�
 
 貫徹免費仔，學習資源儘量從官網找，如果有看到其他人推薦的資源我再分享過來。
 
-### 📚 官方免費資源
-- [AWS 技術文檔](https://docs.aws.amazon.com/)
-- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
-- [AWS Training and Certification](https://aws.amazon.com/training/)
-- [AWS 白皮書](https://aws.amazon.com/whitepapers/)
-
-### 🛠️ 實作環境
-- [AWS 免費方案](https://aws.amazon.com/free/) - 12個月免費使用額度
-- [AWS Educate](https://aws.amazon.com/education/awseducate/) - 學生專屬資源
-- [AWS CloudShell](https://aws.amazon.com/cloudshell/) - 瀏覽器內的命令列環境
-
 ### 📝 學習筆記規劃
 - 每個服務的基本概念整理
-- 實作練習記錄
 - 考試重點摘要
 - 錯題集和複習筆記
 
