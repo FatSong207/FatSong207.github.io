@@ -1,11 +1,12 @@
-- title: "開始使用"
+- title: "關於我"
   pages:
-    - title: "my-first-post"
+    - title: "about-me"
 
 - title: "AWS"
   pages:
     - title: "aws"
-    - title: "aws/ec2/instance-types"
-    - title: "aws/ec2/security-groups"
-    - title: "aws/elb/application-load-balancer"
-    - title: "aws/elb/network-load-balancer"
+    - title: "aws/cert"
+    # - title: "aws/ec2/instance-types"
+    # - title: "aws/ec2/security-groups"
+    # - title: "aws/elb/application-load-balancer"
+    # - title: "aws/elb/network-load-balancer"

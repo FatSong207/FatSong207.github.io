@@ -108,27 +108,37 @@
   <span class="btn-close"><i class="icon icon-close"></i></span>
 
   <div class="sticky"><div class="sidebar-section-wrapper">
-        <strong class="sidebar-section collapsible" data-target="section-0">
-          開始使用
-          <i class="icon icon-chevron-down toggle-icon"></i>
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            關於我
+          </span>
+          <i class="toggle-icon">▼</i>
         </strong>
         
-        <div id="section-0" class="sidebar-pages ">
+        <div id="section-0" class="sidebar-pages collapsed">
               
                 
-                <a class="sidebar-link " href="/docs/my-first-post/">
-                  my-first-post
+                <a class="sidebar-link " href="/docs/about-me/">
+                  about-me
                 </a>
               
             
         </div>
       </div><div class="sidebar-section-wrapper">
-        <strong class="sidebar-section collapsible" data-target="section-1">
-          AWS
-          <i class="icon icon-chevron-down toggle-icon"></i>
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS
+          </span>
+          <i class="toggle-icon">▼</i>
         </strong>
         
-        <div id="section-1" class="sidebar-pages collapsed">
+        <div id="section-1" class="sidebar-pages ">
               
                 
                 <a class="sidebar-link " href="/docs/aws/">
@@ -138,29 +148,8 @@
             
               
                 
-                <a class="sidebar-link " href="/docs/aws/ec2/instance-types/">
-                  aws/ec2/instance-types
-                </a>
-              
-            
-              
-                
-                <a class="sidebar-link " href="/docs/aws/ec2/security-groups/">
-                  aws/ec2/security-groups
-                </a>
-              
-            
-              
-                
-                <a class="sidebar-link " href="/docs/aws/elb/application-load-balancer/">
-                  aws/elb/application-load-balancer
-                </a>
-              
-            
-              
-                
-                <a class="sidebar-link " href="/docs/aws/elb/network-load-balancer/">
-                  aws/elb/network-load-balancer
+                <a class="sidebar-link " href="/docs/aws/cert/">
+                  aws/cert
                 </a>
               
             
@@ -181,15 +170,39 @@
   align-items: center;
   padding: 5px 0;
   user-select: none;
+  transition: all 0.2s ease;
 }
 
 .sidebar-section.collapsible:hover {
   opacity: 0.8;
 }
 
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
 .toggle-icon {
   transition: transform 0.3s ease;
-  font-size: 14px;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
 }
 
 .sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
@@ -210,7 +223,28 @@
 
 .sidebar-pages .sidebar-link {
   display: block;
-  padding-left: 10px;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
 }
 </style>
 
