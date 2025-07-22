@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>一些瑣碎件</title><link>https://fatsong207.github.io/</link><description>Recent content on 一些瑣碎件</description><generator>Hugo</generator><language>en-US</language><atom:link href="https://fatsong207.github.io/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>一些瑣碎件</title><link>https://fatsong207.github.io/</link><description>Recent content on 一些瑣碎件</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 22 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://fatsong207.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>我的第一篇文章</title><link>https://fatsong207.github.io/docs/my-first-post/</link><pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate><guid>https://fatsong207.github.io/docs/my-first-post/</guid><description>&lt;h1 id="歡迎來到我的第一篇文章">歡迎來到我的第一篇文章&lt;/h1>
+&lt;p>這是一個範例文章，展示如何在 Hugo 網站中添加內容。&lt;/p>
+&lt;h2 id="功能特點">功能特點&lt;/h2>
+&lt;ul>
+&lt;li>支援 Markdown 語法&lt;/li>
+&lt;li>可以添加程式碼區塊&lt;/li>
+&lt;li>支援數學公式&lt;/li>
+&lt;li>可以插入圖片和連結&lt;/li>
+&lt;/ul>
+&lt;h2 id="程式碼範例">程式碼範例&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">hello_world&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello, World\!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="s2">&amp;#34;歡迎使用 Hugo\!&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">hello_world&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="列表">列表&lt;/h2>
+&lt;h3 id="有序列表">有序列表&lt;/h3>
+&lt;ol>
+&lt;li>第一項&lt;/li>
+&lt;li>第二項&lt;/li>
+&lt;li>第三項&lt;/li>
+&lt;/ol>
+&lt;h3 id="無序列表">無序列表&lt;/h3>
+&lt;ul>
+&lt;li>項目 A&lt;/li>
+&lt;li>項目 B&lt;/li>
+&lt;li>項目 C&lt;/li>
+&lt;/ul>
+&lt;h2 id="連結和引用">連結和引用&lt;/h2>
+&lt;p>你可以訪問 &lt;a href="https://gohugo.io/">Hugo 官方網站&lt;/a> 了解更多資訊。&lt;/p>
+&lt;blockquote>
+&lt;p>這是一個引用區塊，可以用來突出重要內容。&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;p>這就是如何在 Hugo 中創建內容的基本方法！
+EOF &amp;lt; /dev/null&lt;/p></description></item></channel></rss>
