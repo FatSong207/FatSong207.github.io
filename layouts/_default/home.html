@@ -14,20 +14,6 @@
       {{ end }}
 
     </section>
-    
-    <!-- 最新文章區塊 -->
-    <section style="max-width: 600px; margin: 3rem auto; text-align: center;">
-      <h3>最新文章</h3>
-      
-      {{ $posts := where .Site.RegularPages "Section" "docs" }}
-      {{ range first 5 $posts }}
-        <div style="margin: 1rem 0;">
-          <a href="{{ .Permalink }}" style="color: inherit; text-decoration: none; font-size: 1.1rem;">{{ .Title }}</a>
-        </div>
-      {{ else }}
-        <p>還沒有文章</p>
-      {{ end }}
-    </section>
   </main>
 </div>
 {{ end }}
