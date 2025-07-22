@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div id="site-main-content-wrapper">
+  <main>
+    <section class="cover">
+      <h1>{{ .Site.Title }}</h1>
+      <h2>{{ .Site.Params.description }}</h2>
+
+      {{ with .Site.Params.home.repository }}
+        {{ partial "github-buttons" . }}
+      {{ else }}
+        {{ with .Site.Params.home.repositories }}
+          {{ partial "github-repos-grid" . }}
+        {{ end }}
+      {{ end }}
+
+    </section>
+    
+    <!-- 最新文章區塊 -->
+    <section style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+      <h2 style="color: var(--color-text-secondary); margin-bottom: 1.5rem;">📝 最新文章</h2>
+      
+      {{ $posts := where .Site.RegularPages "Section" "docs" }}
+      {{ range first 5 $posts }}
+        <article style="border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; background: var(--color-background-secondary);">
+          <h3 style="margin-top: 0;">
+            <a href="{{ .Permalink }}" style="color: var(--color-text-primary); text-decoration: none;">{{ .Title }}</a>
+          </h3>
+          
+          <div style="color: var(--color-text-tertiary); font-size: 0.9rem; margin-bottom: 1rem;">
+            <time>{{ .Date.Format "2006年01月02日" }}</time>
+          </div>
+          
+          {{ if .Summary }}
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">{{ .Summary }}</p>
+          {{ end }}
+          
+          <a href="{{ .Permalink }}" style="color: var(--color-primary); text-decoration: none; font-weight: 500;">
+            閱讀更多 →
+          </a>
+        </article>
+      {{ else }}
+        <p style="color: var(--color-text-secondary); text-align: center; padding: 2rem;">
+          還沒有文章，<a href="/docs/" style="color: var(--color-primary);">開始寫作</a>吧！
+        </p>
+      {{ end }}
+      
+      {{ if gt (len $posts) 5 }}
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="/docs/" style="color: var(--color-primary); text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border: 1px solid var(--color-primary); border-radius: 4px;">
+            查看所有文章 →
+          </a>
+        </div>
+      {{ end }}
+    </section>
+  </main>
+</div>
+{{ end }}
