@@ -1,3 +1,11 @@
-- title: "文檔"
+- title: "開始使用"
   pages:
     - title: "my-first-post"
+
+- title: "AWS"
+  pages:
+    - title: "aws"
+    - title: "ec2/instance-types"
+    - title: "ec2/security-groups"
+    - title: "elb/application-load-balancer"
+    - title: "elb/network-load-balancer"
