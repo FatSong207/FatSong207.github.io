@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CCP考試領域二：安全性與合規性概念，包含AWS共同責任模型、IAM身份管理等重要主題。">
+<meta name="author" content="Tom">
+
+<title>安全性與合規性 · 紀錄一些瑣碎事</title>
+
+<link rel="canonical" href="http://localhost:1313/docs/aws/cert/ccp/security-compliance/">
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css" integrity="">
+
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">紀錄一些瑣碎事</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Docs</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    
+
+
+<aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            關於我
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-0" class="sidebar-pages collapsed">
+              
+                
+                <a class="sidebar-link " href="/docs/about-me/">
+                  關於我
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS CERT
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-1" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/">
+                  認證總覽
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-2">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            Cloud Practitioner (CCP)
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-2" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/">
+                  CCP 考試指南
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/cloud-concepts/">
+                  雲端概念
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-instance-types/">
+                  EC2 實例類型
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-pricing/">
+                  EC2 計費
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-scaling/">
+                  EC2 擴展
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/elb/">
+                  ELB
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/feed-back/">
+                  CCP 考試心得回饋
+                </a>
+              
+            
+        </div>
+      </div>
+  </div>
+</aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  <button id="article-nav-toc-btn"><i class="icon icon-toc"></i> On this page</button>
+</nav>
+      <header id="article-header">
+  <h1>安全性與合規性</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="安全性與合規性-">安全性與合規性 🔒</h1>
+<p><strong>考試比重：25%</strong></p>
+<p>這個領域涵蓋AWS雲端中的安全性與合規性概念，是CCP考試的重要組成部分。</p>
+<h2 id="主要學習內容">主要學習內容</h2>
+<h3 id="aws-共同責任模型">AWS 共同責任模型</h3>
+<ul>
+<li>AWS 負責「雲端的」安全性</li>
+<li>客戶負責「雲端中的」安全性</li>
+<li>服務分類：IaaS、PaaS、SaaS 的責任劃分</li>
+</ul>
+<h3 id="iam-身份與存取管理">IAM 身份與存取管理</h3>
+<ul>
+<li>使用者、群組、角色、政策</li>
+<li>多重要素驗證 (MFA)</li>
+<li>最小權限原則</li>
+</ul>
+<h3 id="合規性程式">合規性程式</h3>
+<ul>
+<li>AWS Artifact 合規性文件</li>
+<li>各種合規性框架 (SOC, PCI DSS, HIPAA)</li>
+<li>AWS Config 組態管理</li>
+</ul>
+<hr>
+<blockquote>
+<p>💡 <strong>學習重點</strong>: 理解責任劃分和基本安全概念。</p></blockquote>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2025-07-22"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2025-07-22</time>
+
+  
+    <a id="article-prev-link" href="/docs/aws/cert/ccp/feed-back/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#主要學習內容">主要學習內容</a>
+      <ul>
+        <li><a href="#aws-共同責任模型">AWS 共同責任模型</a></li>
+        <li><a href="#iam-身份與存取管理">IAM 身份與存取管理</a></li>
+        <li><a href="#合規性程式">合規性程式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://FatSong207.com" target="_blank">
+      <i class="icon icon-copyright"></i> 2025 Tom
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/FatSong207" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2025-07-22')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

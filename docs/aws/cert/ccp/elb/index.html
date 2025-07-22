@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事。">
+<meta name="author" content="Tom">
+
+<title> · 紀錄一些瑣碎事</title>
+
+<link rel="canonical" href="http://localhost:1313/docs/aws/cert/ccp/elb/">
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css" integrity="">
+
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">紀錄一些瑣碎事</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Docs</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    
+
+
+<aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            關於我
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-0" class="sidebar-pages collapsed">
+              
+                
+                <a class="sidebar-link " href="/docs/about-me/">
+                  關於我
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS CERT
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-1" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/">
+                  認證總覽
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-2">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            Cloud Practitioner (CCP)
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-2" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/">
+                  CCP 考試指南
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/cloud-concepts/">
+                  雲端概念
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-instance-types/">
+                  EC2 實例類型
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-pricing/">
+                  EC2 計費
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-scaling/">
+                  EC2 擴展
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link current active-link" href="/docs/aws/cert/ccp/elb/">
+                  ELB
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/feed-back/">
+                  CCP 考試心得回饋
+                </a>
+              
+            
+        </div>
+      </div>
+  </div>
+</aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  <button id="article-nav-toc-btn"><i class="icon icon-toc"></i> On this page</button>
+</nav>
+      <header id="article-header">
+  <h1></h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="elastic-load-balancing-elb-完整指南">Elastic Load Balancing (ELB) 完整指南</h1>
+<h2 id="-什麼是-elb">🎯 什麼是 ELB？</h2>
+<p>Elastic Load Balancing (ELB) 是一種自動分配傳入應用程式流量的 AWS 服務，就像一個<strong>智慧交通管制員</strong>，將流量平均分散到多個伺服器上。</p>
+<h3 id="-實際比喻超市收銀台">🏪 實際比喻：超市收銀台</h3>
+<p>想像你在超市購物：</p>
+<ul>
+<li><strong>沒有 ELB</strong>：所有客人都排在同一個收銀台，造成大排長龍</li>
+<li><strong>有 ELB</strong>：智慧引導客人到空閒的收銀台，減少等待時間</li>
+</ul>
+<hr>
+<h2 id="-elb-主要功能">🔧 ELB 主要功能</h2>
+<h3 id="核心功能">核心功能</h3>
+<ul>
+<li><strong>流量分配</strong>：自動將請求分散到健康的執行個體</li>
+<li><strong>健康檢查</strong>：持續監控執行個體狀態</li>
+<li><strong>自動擴展</strong>：配合 Auto Scaling 動態調整</li>
+<li><strong>高可用性</strong>：跨多個可用區分散風險</li>
+</ul>
+<h3 id="運作方式">運作方式</h3>
+<pre tabindex="0"><code>[用戶請求] → [ELB] → [健康檢查] → [選擇執行個體] → [轉發請求]
+              ↓
+        [監控並記錄]
+</code></pre><hr>
+<h2 id="-aws-負載平衡器類型完整比較">🚀 AWS 負載平衡器類型完整比較</h2>
+<table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>ALB</th>
+          <th>NLB</th>
+          <th>CLB</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>OSI 層級</strong></td>
+          <td>第7層 (應用層)</td>
+          <td>第4層 (傳輸層)</td>
+          <td>第4、7層</td>
+      </tr>
+      <tr>
+          <td><strong>支援協定</strong></td>
+          <td>HTTP, HTTPS, WebSocket</td>
+          <td>TCP, UDP, TLS</td>
+          <td>HTTP, HTTPS, TCP, SSL</td>
+      </tr>
+      <tr>
+          <td><strong>路由功能</strong></td>
+          <td>路徑、主機、標頭</td>
+          <td>IP + 連接埠</td>
+          <td>基本負載平衡</td>
+      </tr>
+      <tr>
+          <td><strong>目標類型</strong></td>
+          <td>執行個體、IP、Lambda</td>
+          <td>執行個體、IP</td>
+          <td>執行個體</td>
+      </tr>
+      <tr>
+          <td><strong>容器支援</strong></td>
+          <td>✅ 完整支援</td>
+          <td>✅ 基本支援</td>
+          <td>❌ 不支援</td>
+      </tr>
+      <tr>
+          <td><strong>WebSocket</strong></td>
+          <td>✅ 原生支援</td>
+          <td>✅ 透過 TCP</td>
+          <td>✅ 基本支援</td>
+      </tr>
+      <tr>
+          <td><strong>靜態 IP</strong></td>
+          <td>❌ 不支援</td>
+          <td>✅ 支援</td>
+          <td>❌ 不支援</td>
+      </tr>
+      <tr>
+          <td><strong>SSL 終止</strong></td>
+          <td>✅ 支援</td>
+          <td>✅ 支援</td>
+          <td>✅ 支援</td>
+      </tr>
+      <tr>
+          <td><strong>成本</strong></td>
+          <td>中等</td>
+          <td>較低</td>
+          <td>最低</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-各類型詳細介紹">🎯 各類型詳細介紹</h2>
+<h3 id="1--alb-application-load-balancer">1. 🌐 ALB (Application Load Balancer)</h3>
+<p><strong>最適合：</strong> 現代 Web 應用程式、微服務架構</p>
+<p><strong>核心特色：</strong></p>
+<ul>
+<li><strong>智慧路由</strong>：根據 URL 路徑、主機名稱、HTTP 標頭路由</li>
+<li><strong>容器友好</strong>：與 ECS、EKS 完美整合</li>
+<li><strong>現代協定</strong>：支援 HTTP/2、WebSocket</li>
+<li><strong>SSL 管理</strong>：整合 ACM 憑證管理</li>
+</ul>
+<p><strong>實際應用場景：</strong></p>
+<pre tabindex="0"><code>電商網站路由規則：
+- api.example.com → API 伺服器
+- /images/* → 圖片伺服器
+- /admin/* → 管理後台
+- /mobile/* → 行動版應用
+</code></pre><h3 id="2--nlb-network-load-balancer">2. ⚡ NLB (Network Load Balancer)</h3>
+<p><strong>最適合：</strong> 高效能應用、遊戲伺服器、IoT 應用</p>
+<p><strong>核心特色：</strong></p>
+<ul>
+<li><strong>超低延遲</strong>：微秒級別的延遲</li>
+<li><strong>高吞吐量</strong>：每秒處理數百萬請求</li>
+<li><strong>靜態 IP</strong>：提供固定的 IP 地址</li>
+<li><strong>保留來源 IP</strong>：不修改原始請求的 IP</li>
+</ul>
+<p><strong>實際應用場景：</strong></p>
+<pre tabindex="0"><code>遊戲伺服器架構：
+- 遊戲客戶端 → NLB → 遊戲伺服器群
+- 需要極低延遲和高吞吐量
+- 保留玩家真實 IP 用於地理位置判斷
+</code></pre><h3 id="3--clb-classic-load-balancer">3. 🔄 CLB (Classic Load Balancer)</h3>
+<p><strong>最適合：</strong> 舊有系統、簡單應用</p>
+<p><strong>核心特色：</strong></p>
+<ul>
+<li><strong>基本功能</strong>：提供基礎的負載平衡</li>
+<li><strong>成本最低</strong>：最經濟的選擇</li>
+<li><strong>相容性</strong>：支援 EC2-Classic 網路</li>
+</ul>
+<p><strong>⚠️ 注意：</strong> AWS 建議新項目使用 ALB 或 NLB</p>
+<hr>
+<h2 id="-實際項目例子電商平台">🎯 實際項目例子：電商平台</h2>
+<h3 id="項目需求">項目需求</h3>
+<ul>
+<li><strong>前端</strong>：React SPA 應用</li>
+<li><strong>API</strong>：Node.js 後端服務</li>
+<li><strong>圖片服務</strong>：靜態資源伺服器</li>
+<li><strong>管理後台</strong>：PHP 管理系統</li>
+</ul>
+<h3 id="elb-架構設計">ELB 架構設計</h3>
+<pre tabindex="0"><code>                [Route 53 DNS]
+                       ↓
+                    [ALB]
+                  /   |   \
+                 /    |    \
+              前端   API   管理後台
+           (React) (Node.js) (PHP)
+              ↓       ↓       ↓
+         [EC2 群組] [EC2 群組] [EC2 群組]
+</code></pre><h3 id="路由規則設定">路由規則設定</h3>
+<pre tabindex="0"><code>ALB 路由規則：
+├─ api.shop.com → API 伺服器 (目標群組 A)
+├─ admin.shop.com → 管理後台 (目標群組 B)
+├─ /images/* → 圖片伺服器 (目標群組 C)
+└─ * → 前端應用 (目標群組 D)
+</code></pre><hr>
+<h2 id="-選擇負載平衡器指南">💡 選擇負載平衡器指南</h2>
+<h3 id="-決策流程圖">🎯 決策流程圖</h3>
+<pre tabindex="0"><code>需要應用層功能嗎？
+├─ 是 → 需要高效能嗎？
+│      ├─ 是 → ALB + 優化設定
+│      └─ 否 → ALB (標準設定)
+└─ 否 → 需要超低延遲嗎？
+       ├─ 是 → NLB
+       └─ 否 → 預算考量？
+              ├─ 緊張 → CLB
+              └─ 充足 → NLB
+</code></pre><h3 id="-使用場景">📊 使用場景</h3>
+<table>
+  <thead>
+      <tr>
+          <th>應用類型</th>
+          <th>推薦類型</th>
+          <th>原因</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>電商網站</strong></td>
+          <td>ALB</td>
+          <td>需要路由、SSL 終止、容器支援</td>
+      </tr>
+      <tr>
+          <td><strong>API 服務</strong></td>
+          <td>ALB</td>
+          <td>需要路徑路由、健康檢查</td>
+      </tr>
+      <tr>
+          <td><strong>遊戲伺服器</strong></td>
+          <td>NLB</td>
+          <td>需要低延遲、高吞吐量</td>
+      </tr>
+      <tr>
+          <td><strong>IoT 應用</strong></td>
+          <td>NLB</td>
+          <td>需要 TCP/UDP 支援</td>
+      </tr>
+      <tr>
+          <td><strong>企業內部系統</strong></td>
+          <td>CLB</td>
+          <td>成本考量、功能簡單</td>
+      </tr>
+      <tr>
+          <td><strong>微服務架構</strong></td>
+          <td>ALB</td>
+          <td>需要複雜路由、容器支援</td>
+      </tr>
+  </tbody>
+</table>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="0001-01-01"><i class="icon icon-calendar"></i>&nbsp;Last updated: 0001-01-01</time>
+
+  
+    <a id="article-prev-link" href="/docs/aws/cert/ccp/feed-back/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-什麼是-elb">🎯 什麼是 ELB？</a>
+      <ul>
+        <li><a href="#-實際比喻超市收銀台">🏪 實際比喻：超市收銀台</a></li>
+      </ul>
+    </li>
+    <li><a href="#-elb-主要功能">🔧 ELB 主要功能</a>
+      <ul>
+        <li><a href="#核心功能">核心功能</a></li>
+        <li><a href="#運作方式">運作方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#-aws-負載平衡器類型完整比較">🚀 AWS 負載平衡器類型完整比較</a></li>
+    <li><a href="#-各類型詳細介紹">🎯 各類型詳細介紹</a>
+      <ul>
+        <li><a href="#1--alb-application-load-balancer">1. 🌐 ALB (Application Load Balancer)</a></li>
+        <li><a href="#2--nlb-network-load-balancer">2. ⚡ NLB (Network Load Balancer)</a></li>
+        <li><a href="#3--clb-classic-load-balancer">3. 🔄 CLB (Classic Load Balancer)</a></li>
+      </ul>
+    </li>
+    <li><a href="#-實際項目例子電商平台">🎯 實際項目例子：電商平台</a>
+      <ul>
+        <li><a href="#項目需求">項目需求</a></li>
+        <li><a href="#elb-架構設計">ELB 架構設計</a></li>
+        <li><a href="#路由規則設定">路由規則設定</a></li>
+      </ul>
+    </li>
+    <li><a href="#-選擇負載平衡器指南">💡 選擇負載平衡器指南</a>
+      <ul>
+        <li><a href="#-決策流程圖">🎯 決策流程圖</a></li>
+        <li><a href="#-使用場景">📊 使用場景</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://FatSong207.com" target="_blank">
+      <i class="icon icon-copyright"></i> 2025 Tom
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/FatSong207" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2025-07-22')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

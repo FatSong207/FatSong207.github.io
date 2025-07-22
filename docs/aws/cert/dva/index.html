@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AWS Developer Associate (DVA-C01) 認證考試準備指南，專注於AWS平台上的應用程式開發與部署。">
+<meta name="author" content="Tom">
+
+<title>AWS Developer Associate · 紀錄一些瑣碎事</title>
+
+<link rel="canonical" href="http://localhost:1313/docs/aws/cert/dva/">
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css" integrity="">
+
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">紀錄一些瑣碎事</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Docs</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+
+
+<aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            關於我
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-0" class="sidebar-pages collapsed">
+              
+                
+                <a class="sidebar-link " href="/docs/about-me/">
+                  關於我
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS CERT
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-1" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/">
+                  認證總覽
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-2">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            Cloud Practitioner (CCP)
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-2" class="sidebar-pages collapsed">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/">
+                  CCP 考試指南
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/cloud-concepts/">
+                  雲端概念
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-instance-types/">
+                  EC2 實例類型
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-pricing/">
+                  EC2 計費
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-scaling/">
+                  EC2 擴展
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/elb/">
+                  ELB
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/feed-back/">
+                  CCP 考試心得回饋
+                </a>
+              
+            
+        </div>
+      </div>
+  </div>
+</aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>
+  <main>
+    <article id="article">
+      
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  <button id="article-nav-toc-btn"><i class="icon icon-toc"></i> On this page</button>
+</nav>
+      
+      <header id="article-header">
+        <h1>AWS Developer Associate</h1>
+      </header>
+      <div id="article-content">
+        <h1 id="aws-certified-developer---associate-dva-c01-">AWS Certified Developer - Associate (DVA-C01) 👨‍💻</h1>
+<p>Developer Associate 認證專為在 AWS 平台上開發和維護應用程式的開發人員設計。</p>
+<h2 id="考試概覽">考試概覽</h2>
+<ul>
+<li><strong>考試代碼</strong>: DVA-C01</li>
+<li><strong>考試時間</strong>: 130 分鐘</li>
+<li><strong>題目數量</strong>: 65 題</li>
+<li><strong>及格分數</strong>: 720/1000 分</li>
+<li><strong>考試費用</strong>: $150 USD</li>
+<li><strong>有效期</strong>: 3 年</li>
+</ul>
+<h2 id="考試領域分布">考試領域分布</h2>
+<h3 id="1-部署-22">1. 部署 (22%)</h3>
+<ul>
+<li>準備應用程式部署套件以部署到AWS</li>
+<li>部署無伺服器應用程式</li>
+<li>部署應用程式使用 Elastic Beanstalk</li>
+<li>準備應用程式部署使用容器服務</li>
+</ul>
+<h3 id="2-安全性-26">2. 安全性 (26%)</h3>
+<ul>
+<li>實作認證和授權基於 AWS IAM</li>
+<li>實作應用程式安全最佳實務</li>
+<li>實作加密使用 AWS 服務</li>
+</ul>
+<h3 id="3-開發使用-aws-服務-30">3. 開發使用 AWS 服務 (30%)</h3>
+<ul>
+<li>編寫程式碼與 AWS 服務互動使用 API、SDK 和 CLI</li>
+<li>翻譯功能需求為應用程式設計</li>
+<li>實作應用程式設計模式和架構</li>
+</ul>
+<h3 id="4-重構-10">4. 重構 (10%)</h3>
+<ul>
+<li>優化應用程式以最佳使用 AWS 服務和功能</li>
+<li>重構現有應用程式程式碼以在雲端執行</li>
+</ul>
+<h3 id="5-監控和疑難排解-12">5. 監控和疑難排解 (12%)</h3>
+<ul>
+<li>編寫程式碼以監控應用程式</li>
+<li>執行根本原因分析錯誤與例外狀況</li>
+</ul>
+<h2 id="學習重點">學習重點</h2>
+<h3 id="-核心開發技能">🛠️ 核心開發技能</h3>
+<ul>
+<li>AWS SDK 使用 (Python, Java, JavaScript)</li>
+<li>AWS CLI 命令操作</li>
+<li>CloudFormation 模板撰寫</li>
+<li>Lambda 函數開發</li>
+</ul>
+<h3 id="-監控與除錯">📊 監控與除錯</h3>
+<ul>
+<li>CloudWatch 指標和日誌</li>
+<li>X-Ray 服務追蹤</li>
+<li>應用程式效能監控</li>
+<li>錯誤處理和重試邏輯</li>
+</ul>
+<h3 id="-安全開發實務">🔐 安全開發實務</h3>
+<ul>
+<li>IAM 角色和政策</li>
+<li>AWS Cognito 身分驗證</li>
+<li>加密和金鑰管理</li>
+<li>API 安全最佳實務</li>
+</ul>
+<h2 id="重要服務">重要服務</h2>
+<h3 id="開發工具">開發工具</h3>
+<ul>
+<li>CodeCommit, CodeBuild, CodeDeploy</li>
+<li>CodePipeline, Cloud9</li>
+<li>Systems Manager</li>
+</ul>
+<h3 id="運算和應用服務">運算和應用服務</h3>
+<ul>
+<li>Lambda, API Gateway</li>
+<li>EC2, Elastic Beanstalk</li>
+<li>ECS, EKS</li>
+</ul>
+<h3 id="資料庫">資料庫</h3>
+<ul>
+<li>DynamoDB, RDS</li>
+<li>ElastiCache, DAX</li>
+</ul>
+<h3 id="整合服務">整合服務</h3>
+<ul>
+<li>SQS, SNS, SES</li>
+<li>Kinesis, EventBridge</li>
+</ul>
+<hr>
+<blockquote>
+<p>💡 <strong>重點提醒</strong>: DVA 重視實際程式開發經驗，建議多寫程式碼和實際部署應用程式！</p></blockquote>
+
+        
+        <h2>文章列表</h2>
+        <ul>
+        
+          <li><a href="http://localhost:1313/docs/aws/cert/dva/deployment/">部署</a> - <time>2025-07-22</time></li>
+        
+          <li><a href="http://localhost:1313/docs/aws/cert/dva/security/">安全性</a> - <time>2025-07-22</time></li>
+        
+          <li><a href="http://localhost:1313/docs/aws/cert/dva/development/">開發使用 AWS 服務</a> - <time>2025-07-22</time></li>
+        
+          <li><a href="http://localhost:1313/docs/aws/cert/dva/refactoring/">重構</a> - <time>2025-07-22</time></li>
+        
+        </ul>
+      </div>
+    </article>
+    
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#考試概覽">考試概覽</a></li>
+    <li><a href="#考試領域分布">考試領域分布</a>
+      <ul>
+        <li><a href="#1-部署-22">1. 部署 (22%)</a></li>
+        <li><a href="#2-安全性-26">2. 安全性 (26%)</a></li>
+        <li><a href="#3-開發使用-aws-服務-30">3. 開發使用 AWS 服務 (30%)</a></li>
+        <li><a href="#4-重構-10">4. 重構 (10%)</a></li>
+        <li><a href="#5-監控和疑難排解-12">5. 監控和疑難排解 (12%)</a></li>
+      </ul>
+    </li>
+    <li><a href="#學習重點">學習重點</a>
+      <ul>
+        <li><a href="#-核心開發技能">🛠️ 核心開發技能</a></li>
+        <li><a href="#-監控與除錯">📊 監控與除錯</a></li>
+        <li><a href="#-安全開發實務">🔐 安全開發實務</a></li>
+      </ul>
+    </li>
+    <li><a href="#重要服務">重要服務</a>
+      <ul>
+        <li><a href="#開發工具">開發工具</a></li>
+        <li><a href="#運算和應用服務">運算和應用服務</a></li>
+        <li><a href="#資料庫">資料庫</a></li>
+        <li><a href="#整合服務">整合服務</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+    
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://FatSong207.com" target="_blank">
+      <i class="icon icon-copyright"></i> 2025 Tom
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/FatSong207" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2025-07-22')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

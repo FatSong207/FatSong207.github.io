@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS 認證 on 紀錄一些瑣碎事</title>
-    <link>https://fatsong207.github.io/docs/aws/cert/</link>
+    <link>http://localhost:1313/docs/aws/cert/</link>
     <description>Recent content in AWS 認證 on 紀錄一些瑣碎事</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://fatsong207.github.io/docs/aws/cert/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/aws/cert/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事。">
+<meta name="author" content="Tom">
+
+<title> · 紀錄一些瑣碎事</title>
+
+<link rel="canonical" href="http://localhost:1313/docs/aws/cert/ccp/ec2-pricing/">
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css" integrity="">
+
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">紀錄一些瑣碎事</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Docs</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    
+
+
+<aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            關於我
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-0" class="sidebar-pages collapsed">
+              
+                
+                <a class="sidebar-link " href="/docs/about-me/">
+                  關於我
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS CERT
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-1" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/">
+                  認證總覽
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-2">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            Cloud Practitioner (CCP)
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-2" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/">
+                  CCP 考試指南
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/cloud-concepts/">
+                  雲端概念
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-instance-types/">
+                  EC2 實例類型
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link current active-link" href="/docs/aws/cert/ccp/ec2-pricing/">
+                  EC2 計費
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-scaling/">
+                  EC2 擴展
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/elb/">
+                  ELB
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/feed-back/">
+                  CCP 考試心得回饋
+                </a>
+              
+            
+        </div>
+      </div>
+  </div>
+</aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  <button id="article-nav-toc-btn"><i class="icon icon-toc"></i> On this page</button>
+</nav>
+      <header id="article-header">
+  <h1></h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="amazon-ec2-定價模式比較">Amazon EC2 定價模式比較</h1>
+<h2 id="定價模式總覽">定價模式總覽</h2>
+<table>
+  <thead>
+      <tr>
+          <th>定價模式</th>
+          <th>適用場景</th>
+          <th>成本節省</th>
+          <th>靈活性</th>
+          <th>風險</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>隨需執行個體</strong></td>
+          <td>短期、不可預測的工作負載</td>
+          <td>無折扣</td>
+          <td>最高</td>
+          <td>無</td>
+      </tr>
+      <tr>
+          <td><strong>預留執行個體</strong></td>
+          <td>長期、穩定的工作負載</td>
+          <td>最多 72%</td>
+          <td>中等</td>
+          <td>低</td>
+      </tr>
+      <tr>
+          <td><strong>Savings Plans</strong></td>
+          <td>需要靈活性的長期工作負載</td>
+          <td>最多 72%</td>
+          <td>高</td>
+          <td>低</td>
+      </tr>
+      <tr>
+          <td><strong>Spot 執行個體</strong></td>
+          <td>可中斷的背景任務</td>
+          <td>最多 90%</td>
+          <td>低</td>
+          <td>高</td>
+      </tr>
+      <tr>
+          <td><strong>專用主機</strong></td>
+          <td>需要專用硬體或授權合規</td>
+          <td>無折扣</td>
+          <td>低</td>
+          <td>無</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="詳細說明">詳細說明</h2>
+<h3 id="1-隨需執行個體-on-demand-instances">1. 隨需執行個體 (On-Demand Instances)</h3>
+<p><strong>適用場景：</strong></p>
+<ul>
+<li>不可中斷的短期不定期工作負載</li>
+<li>開發和測試應用程式</li>
+<li>使用模式無法預測的應用程式</li>
+</ul>
+<p><strong>特點：</strong></p>
+<ul>
+<li>無需預付成本或最低合約</li>
+<li>持續執行直至主動停止</li>
+<li>按使用的運算時間付費</li>
+<li><strong>不適合</strong>持續一年或以上的工作負載</li>
+</ul>
+<hr>
+<h3 id="2-預留執行個體-reserved-instances">2. 預留執行個體 (Reserved Instances)</h3>
+<p><strong>類型：</strong></p>
+<ul>
+<li><strong>標準預留執行個體</strong>：適合穩定狀態應用程式</li>
+<li><strong>可轉換預留執行個體</strong>：適合需要靈活性的場景</li>
+</ul>
+<p><strong>特點：</strong></p>
+<ul>
+<li>1 年或 3 年期合約（3 年期節省更多）</li>
+<li>需要指定執行個體類型和大小</li>
+<li>可選擇指定可用區域獲得容量預留</li>
+<li>期限結束後可繼續使用，但需支付隨需費率</li>
+</ul>
+<p><strong>適用場景：</strong></p>
+<ul>
+<li>知道穩定狀態應用程式所需的 EC2 執行個體類型和大小</li>
+<li>計劃在特定 AWS 區域執行</li>
+<li>需要容量保證</li>
+</ul>
+<p><strong>限制：</strong></p>
+<ul>
+<li>綁定特定執行個體類型和大小</li>
+<li>無法輕易更改規格</li>
+<li>如果需求變化，可能造成浪費</li>
+</ul>
+<hr>
+<h3 id="3-ec2-執行個體-savings-plans">3. EC2 執行個體 Savings Plans</h3>
+<p><strong>特點：</strong></p>
+<ul>
+<li>1 年期或 3 年期每小時支出承諾</li>
+<li>最多可節省 72% 費用</li>
+<li>無需事先指定執行個體類型和大小</li>
+<li>在所選區域的執行個體系列中靈活使用</li>
+<li>不包含容量預留選項</li>
+</ul>
+<p><strong>適用場景：</strong></p>
+<ul>
+<li>需要在承諾期限內擁有靈活性</li>
+<li>不確定具體的執行個體類型和大小</li>
+<li>希望獲得類似預留執行個體的折扣</li>
+</ul>
+<p><strong>優勢：</strong></p>
+<ul>
+<li>可在同一執行個體系列內自由切換</li>
+<li>可更改執行個體大小</li>
+<li>可更改作業系統</li>
+<li>可在不同可用區域間移動</li>
+</ul>
+<hr>
+<h3 id="4-spot-執行個體">4. Spot 執行個體</h3>
+<p><strong>特點：</strong></p>
+<ul>
+<li>利用未使用的 Amazon EC2 運算容量</li>
+<li>最多可節省 90% 成本</li>
+<li>可能被中斷（當容量不足或需求增加時）</li>
+<li>適合可承受中斷的工作負載</li>
+</ul>
+<p><strong>適用場景：</strong></p>
+<ul>
+<li>背景處理任務</li>
+<li>資料處理任務</li>
+<li>啟動和結束時間較彈性的工作負載</li>
+<li><strong>不適合</strong>需要穩定性的應用程式</li>
+</ul>
+<hr>
+<h3 id="5-專用主機-dedicated-hosts">5. 專用主機 (Dedicated Hosts)</h3>
+<p><strong>特點：</strong></p>
+<ul>
+<li>完全專供您使用的實體伺服器</li>
+<li>可使用現有的軟體授權</li>
+<li>協助維持授權合規</li>
+<li>在所有 EC2 選項中價格最高</li>
+</ul>
+<p><strong>適用場景：</strong></p>
+<ul>
+<li>需要專用硬體</li>
+<li>需要維持軟體授權合規</li>
+<li>對硬體隔離有特殊要求</li>
+</ul>
+<hr>
+<h2 id="選擇建議">選擇建議</h2>
+<ol>
+<li><strong>短期測試/開發</strong> → 隨需執行個體</li>
+<li><strong>長期穩定工作負載</strong> → 預留執行個體</li>
+<li><strong>需要靈活性的長期工作負載</strong> → Savings Plans</li>
+<li><strong>可中斷的背景任務</strong> → Spot 執行個體</li>
+<li><strong>需要專用硬體或授權合規</strong> → 專用主機</li>
+</ol>
+<hr>
+<h2 id="預留執行個體-vs-savings-plans-詳細比較">預留執行個體 vs Savings Plans 詳細比較</h2>
+<h3 id="實際例子">實際例子</h3>
+<p><strong>預留執行個體場景：</strong></p>
+<pre tabindex="0"><code>您購買了 m5.xlarge Linux 預留執行個體
+↓
+只能使用 m5.xlarge Linux 執行個體
+↓
+如果需要 m5.2xlarge 或 Windows 執行個體
+↓
+需要額外購買或支付隨需費用
+</code></pre><p><strong>Savings Plans 場景：</strong></p>
+<pre tabindex="0"><code>您購買了 M5 系列 Savings Plans
+↓
+可以使用任何 M5 系列執行個體：
+- m5.small, m5.large, m5.xlarge, m5.2xlarge
+- Linux 或 Windows
+- 任何可用區域
+↓
+完全靈活，無需額外費用
+</code></pre><h3 id="選擇建議-1">選擇建議</h3>
+<p><strong>選擇預留執行個體當：</strong></p>
+<ul>
+<li>您非常確定未來1-3年的需求</li>
+<li>需要容量保證（避免資源不足）</li>
+<li>工作負載非常穩定</li>
+</ul>
+<p><strong>選擇 Savings Plans 當：</strong></p>
+<ul>
+<li>需求可能會有變化</li>
+<li>希望保持靈活性</li>
+<li>不想被特定規格綁定</li>
+<li>不確定具體需要什麼類型的執行個體</li>
+</ul>
+<p><strong>總結：</strong> Savings Plans 是預留執行個體的「升級版」，提供了相同的成本節省，但大大增加了靈活性。除非您特別需要容量預留功能，否則 Savings Plans 通常是更好的選擇。</p>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="0001-01-01"><i class="icon icon-calendar"></i>&nbsp;Last updated: 0001-01-01</time>
+
+  
+    <a id="article-prev-link" href="/docs/aws/cert/ccp/feed-back/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#定價模式總覽">定價模式總覽</a></li>
+    <li><a href="#詳細說明">詳細說明</a>
+      <ul>
+        <li><a href="#1-隨需執行個體-on-demand-instances">1. 隨需執行個體 (On-Demand Instances)</a></li>
+        <li><a href="#2-預留執行個體-reserved-instances">2. 預留執行個體 (Reserved Instances)</a></li>
+        <li><a href="#3-ec2-執行個體-savings-plans">3. EC2 執行個體 Savings Plans</a></li>
+        <li><a href="#4-spot-執行個體">4. Spot 執行個體</a></li>
+        <li><a href="#5-專用主機-dedicated-hosts">5. 專用主機 (Dedicated Hosts)</a></li>
+      </ul>
+    </li>
+    <li><a href="#選擇建議">選擇建議</a></li>
+    <li><a href="#預留執行個體-vs-savings-plans-詳細比較">預留執行個體 vs Savings Plans 詳細比較</a>
+      <ul>
+        <li><a href="#實際例子">實際例子</a></li>
+        <li><a href="#選擇建議-1">選擇建議</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://FatSong207.com" target="_blank">
+      <i class="icon icon-copyright"></i> 2025 Tom
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/FatSong207" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2025-07-22')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

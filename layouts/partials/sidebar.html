@@ -101,24 +101,24 @@
               {{ if eq $pageSlug "" }}
                 {{ $href := printf "/%s/" $.Section }}
                 <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
-                  {{ $page.title }}
+                  {{ if $page.name }}{{ $page.name }}{{ else }}{{ $page.title }}{{ end }}
                 </a>
               {{ else }}
                 {{ $href := printf "/%s/%s/" $.Section $pageSlug }}
                 <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
-                  {{ $page.title }}
+                  {{ if $page.name }}{{ $page.name }}{{ else }}{{ $page.title }}{{ end }}
                 </a>
               {{ end }}
             {{ else }}
               {{ if eq $pageSlug "" }}
                 {{ $href := printf "/%s/%s/" $currentLang $.Section }}
                 <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
-                  {{ $page.title }}
+                  {{ if $page.name }}{{ $page.name }}{{ else }}{{ $page.title }}{{ end }}
                 </a>
               {{ else }}
                 {{ $href := printf "/%s/%s/%s/" $currentLang $.Section $pageSlug }}
                 <a class="sidebar-link {{ if $isActivePage }}current active-link{{ end }}" href="{{ $href }}">
-                  {{ $page.title }}
+                  {{ if $page.name }}{{ $page.name }}{{ else }}{{ $page.title }}{{ end }}
                 </a>
               {{ end }}
             {{ end }}

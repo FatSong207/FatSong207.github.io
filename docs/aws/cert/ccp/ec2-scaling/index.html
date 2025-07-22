@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可能會記錄一下工作遇到的一些問題、學習到的東西、以及一些瑣碎事。">
+<meta name="author" content="Tom">
+
+<title> · 紀錄一些瑣碎事</title>
+
+<link rel="canonical" href="http://localhost:1313/docs/aws/cert/ccp/ec2-scaling/">
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css" integrity="">
+
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">紀錄一些瑣碎事</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Docs</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    
+
+
+<aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            關於我
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-0" class="sidebar-pages collapsed">
+              
+                
+                <a class="sidebar-link " href="/docs/about-me/">
+                  關於我
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS CERT
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-1" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/">
+                  認證總覽
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-2">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            Cloud Practitioner (CCP)
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-2" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/">
+                  CCP 考試指南
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/cloud-concepts/">
+                  雲端概念
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-instance-types/">
+                  EC2 實例類型
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/ec2-pricing/">
+                  EC2 計費
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link current active-link" href="/docs/aws/cert/ccp/ec2-scaling/">
+                  EC2 擴展
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/elb/">
+                  ELB
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/feed-back/">
+                  CCP 考試心得回饋
+                </a>
+              
+            
+        </div>
+      </div>
+  </div>
+</aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  <button id="article-nav-toc-btn"><i class="icon icon-toc"></i> On this page</button>
+</nav>
+      <header id="article-header">
+  <h1></h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="amazon-ec2-auto-scaling-完整指南">Amazon EC2 Auto Scaling 完整指南</h1>
+<h2 id="-什麼是-auto-scaling">🎯 什麼是 Auto Scaling？</h2>
+<p>Amazon EC2 Auto Scaling 是一種自動調整運算資源的服務，能夠根據應用程式需求自動新增或移除 EC2 執行個體。就像是一個<strong>智慧管家</strong>，幫你管理伺服器數量。</p>
+<h3 id="-實際比喻咖啡店員工管理">🏪 實際比喻：咖啡店員工管理</h3>
+<p>想像你經營一家咖啡店：</p>
+<ul>
+<li><strong>平常時間</strong>：2 名員工就夠了（最小值）</li>
+<li><strong>尖峰時間</strong>：需要 4 名員工應付人潮（所需值）</li>
+<li><strong>特殊活動</strong>：最多可以叫 6 名員工（最大值）</li>
+</ul>
+<p>Auto Scaling 就是自動幫你決定什麼時候需要多少員工！</p>
+<hr>
+<h2 id="-auto-scaling-群組運作示意">🔧 Auto Scaling 群組運作示意</h2>
+<p><img src="../../../../../../img/scaling.png" alt="Auto Scaling 群組示意圖"></p>
+<p><em>圖說：Auto Scaling 群組會根據最小值、所需值與需求自動調整 EC2 執行個體數量。</em></p>
+<hr>
+<h2 id="-auto-scaling-群組的三個核心參數">📊 Auto Scaling 群組的三個核心參數</h2>
+<h3 id="1--最小值-minimum-capacity">1. 🚪 最小值 (Minimum Capacity)</h3>
+<ul>
+<li><strong>定義</strong>：群組中必須維持的最小執行個體數量</li>
+<li><strong>用途</strong>：確保服務始終可用</li>
+<li><strong>範例</strong>：設定最小值為 2，即使沒有流量也會保持 2 個執行個體運行</li>
+</ul>
+<h3 id="2--所需值-desired-capacity">2. 🎯 所需值 (Desired Capacity)</h3>
+<ul>
+<li><strong>定義</strong>：理想的執行個體數量</li>
+<li><strong>用途</strong>：正常營運時的標準配置</li>
+<li><strong>範例</strong>：設定所需值為 3，系統會嘗試維持 3 個執行個體</li>
+</ul>
+<h3 id="3--最大值-maximum-capacity">3. 🚀 最大值 (Maximum Capacity)</h3>
+<ul>
+<li><strong>定義</strong>：群組可擴展的最大執行個體數量</li>
+<li><strong>用途</strong>：控制成本，避免無限擴展</li>
+<li><strong>範例</strong>：設定最大值為 8，即使流量暴增也不會超過 8 個執行個體</li>
+</ul>
+<hr>
+<h2 id="-擴展觸發條件">🎛️ 擴展觸發條件</h2>
+<h3 id="基於指標的自動擴展">基於指標的自動擴展</h3>
+<table>
+  <thead>
+      <tr>
+          <th>指標類型</th>
+          <th>觸發條件</th>
+          <th>實際應用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>CPU 使用率</strong></td>
+          <td>&gt; 70% 擴展，&lt; 30% 縮減</td>
+          <td>運算密集型應用</td>
+      </tr>
+      <tr>
+          <td><strong>記憶體使用率</strong></td>
+          <td>&gt; 80% 擴展，&lt; 40% 縮減</td>
+          <td>記憶體密集型應用</td>
+      </tr>
+      <tr>
+          <td><strong>網路流量</strong></td>
+          <td>高流量時擴展</td>
+          <td>Web 應用程式</td>
+      </tr>
+      <tr>
+          <td><strong>請求數量</strong></td>
+          <td>每分鐘請求 &gt; 1000</td>
+          <td>API 服務</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="基於排程的自動擴展">基於排程的自動擴展</h3>
+<pre tabindex="0"><code>實際場景：電商網站
+- 平日 09:00-18:00：維持 4 個執行個體
+- 週末全天：維持 6 個執行個體  
+- 促銷活動期間：維持 10 個執行個體
+- 深夜 02:00-06:00：縮減到 2 個執行個體
+</code></pre><hr>
+<h2 id="-auto-scaling-運作流程">🔄 Auto Scaling 運作流程</h2>
+<h3 id="1-監控階段">1. 監控階段</h3>
+<pre tabindex="0"><code>CloudWatch 持續監控：
+├─ CPU 使用率
+├─ 記憶體使用率
+├─ 網路流量
+└─ 應用程式指標
+</code></pre><h3 id="2-決策階段">2. 決策階段</h3>
+<pre tabindex="0"><code>評估是否需要擴展：
+├─ 檢查觸發條件
+├─ 確認冷卻時間
+├─ 驗證容量限制
+└─ 選擇擴展策略
+</code></pre><h3 id="3-執行階段">3. 執行階段</h3>
+<pre tabindex="0"><code>執行擴展動作：
+├─ 啟動新執行個體（擴展）
+├─ 或終止執行個體（縮減）
+├─ 更新負載均衡器
+└─ 記錄操作日誌
+</code></pre><hr>
+<h2 id="-優勢總結">🎉 優勢總結</h2>
+<h3 id="成本效益">成本效益</h3>
+<ul>
+<li><strong>按需付費</strong>：只為實際使用的資源付費</li>
+<li><strong>避免過度佈建</strong>：不需要提前購買大量伺服器</li>
+<li><strong>優化資源利用率</strong>：自動調整以提高效率</li>
+</ul>
+<h3 id="可靠性">可靠性</h3>
+<ul>
+<li><strong>自動故障恢復</strong>：自動替換故障的執行個體</li>
+<li><strong>高可用性</strong>：分布在多個可用區</li>
+<li><strong>無需人工干預</strong>：24/7 自動管理</li>
+</ul>
+<h3 id="靈活性">靈活性</h3>
+<ul>
+<li><strong>快速響應</strong>：根據需求快速調整</li>
+<li><strong>可預測性</strong>：支援排程式擴展</li>
+<li><strong>可擴展性</strong>：支援從小型到大型應用</li>
+</ul>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="0001-01-01"><i class="icon icon-calendar"></i>&nbsp;Last updated: 0001-01-01</time>
+
+  
+    <a id="article-prev-link" href="/docs/aws/cert/ccp/feed-back/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-什麼是-auto-scaling">🎯 什麼是 Auto Scaling？</a>
+      <ul>
+        <li><a href="#-實際比喻咖啡店員工管理">🏪 實際比喻：咖啡店員工管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#-auto-scaling-群組運作示意">🔧 Auto Scaling 群組運作示意</a></li>
+    <li><a href="#-auto-scaling-群組的三個核心參數">📊 Auto Scaling 群組的三個核心參數</a>
+      <ul>
+        <li><a href="#1--最小值-minimum-capacity">1. 🚪 最小值 (Minimum Capacity)</a></li>
+        <li><a href="#2--所需值-desired-capacity">2. 🎯 所需值 (Desired Capacity)</a></li>
+        <li><a href="#3--最大值-maximum-capacity">3. 🚀 最大值 (Maximum Capacity)</a></li>
+      </ul>
+    </li>
+    <li><a href="#-擴展觸發條件">🎛️ 擴展觸發條件</a>
+      <ul>
+        <li><a href="#基於指標的自動擴展">基於指標的自動擴展</a></li>
+        <li><a href="#基於排程的自動擴展">基於排程的自動擴展</a></li>
+      </ul>
+    </li>
+    <li><a href="#-auto-scaling-運作流程">🔄 Auto Scaling 運作流程</a>
+      <ul>
+        <li><a href="#1-監控階段">1. 監控階段</a></li>
+        <li><a href="#2-決策階段">2. 決策階段</a></li>
+        <li><a href="#3-執行階段">3. 執行階段</a></li>
+      </ul>
+    </li>
+    <li><a href="#-優勢總結">🎉 優勢總結</a>
+      <ul>
+        <li><a href="#成本效益">成本效益</a></li>
+        <li><a href="#可靠性">可靠性</a></li>
+        <li><a href="#靈活性">靈活性</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://FatSong207.com" target="_blank">
+      <i class="icon icon-copyright"></i> 2025 Tom
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/FatSong207" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2025-07-22')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>

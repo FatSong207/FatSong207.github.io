@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Developer Associate on 紀錄一些瑣碎事</title>
+    <link>http://localhost:1313/docs/aws/cert/dva/</link>
+    <description>Recent content in AWS Developer Associate on 紀錄一些瑣碎事</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 22 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/aws/cert/dva/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>部署</title>
+      <link>http://localhost:1313/docs/aws/cert/dva/deployment/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aws/cert/dva/deployment/</guid>
+      <description>&lt;h1 id=&#34;部署-&#34;&gt;部署 🚀&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;考試比重：22%&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;掌握各種部署方法和工具，確保應用程式能夠順利上線。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要學習內容&#34;&gt;主要學習內容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;應用程式部署套件&#34;&gt;應用程式部署套件&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;部署套件準備和打包&lt;/li&gt;&#xA;&lt;li&gt;版本控制和回滾策略&lt;/li&gt;&#xA;&lt;li&gt;Blue/Green 和 Rolling 部署&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;無伺服器應用部署&#34;&gt;無伺服器應用部署&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Lambda 函數部署&lt;/li&gt;&#xA;&lt;li&gt;SAM (Serverless Application Model)&lt;/li&gt;&#xA;&lt;li&gt;API Gateway 整合&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;elastic-beanstalk-部署&#34;&gt;Elastic Beanstalk 部署&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;應用程式版本管理&lt;/li&gt;&#xA;&lt;li&gt;環境組態設定&lt;/li&gt;&#xA;&lt;li&gt;監控和日誌管理&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💡 &lt;strong&gt;部署重點&lt;/strong&gt;: 自動化部署流程，減少人為錯誤。&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>安全性</title>
+      <link>http://localhost:1313/docs/aws/cert/dva/security/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aws/cert/dva/security/</guid>
+      <description>&lt;h1 id=&#34;安全性-&#34;&gt;安全性 🔒&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;考試比重：26%&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;開發安全的應用程式，保護資料和使用者隱私。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要學習內容&#34;&gt;主要學習內容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;認證和授權&#34;&gt;認證和授權&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IAM 角色在應用中的使用&lt;/li&gt;&#xA;&lt;li&gt;Cognito 使用者身份驗證&lt;/li&gt;&#xA;&lt;li&gt;OAuth 2.0 和 OpenID Connect&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;應用程式安全實務&#34;&gt;應用程式安全實務&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;輸入驗證和消毒&lt;/li&gt;&#xA;&lt;li&gt;SQL 注入防護&lt;/li&gt;&#xA;&lt;li&gt;CORS 跨域資源共享&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;加密實作&#34;&gt;加密實作&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;KMS 金鑰管理&lt;/li&gt;&#xA;&lt;li&gt;資料庫加密&lt;/li&gt;&#xA;&lt;li&gt;S3 物件加密&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💡 &lt;strong&gt;安全重點&lt;/strong&gt;: 在開發階段就考慮安全性，而不是事後添加。&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>開發使用 AWS 服務</title>
+      <link>http://localhost:1313/docs/aws/cert/dva/development/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aws/cert/dva/development/</guid>
+      <description>&lt;h1 id=&#34;開發使用-aws-服務-&#34;&gt;開發使用 AWS 服務 👨‍💻&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;考試比重：30%&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;這是DVA考試的核心領域，專注於實際的程式開發技能。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要學習內容&#34;&gt;主要學習內容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;apisdk-和-cli&#34;&gt;API、SDK 和 CLI&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;AWS SDK 在不同語言中的使用&lt;/li&gt;&#xA;&lt;li&gt;Boto3 (Python) 開發實務&lt;/li&gt;&#xA;&lt;li&gt;AWS CLI 自動化腳本&lt;/li&gt;&#xA;&lt;li&gt;錯誤處理和重試邏輯&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;應用程式設計&#34;&gt;應用程式設計&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;微服務架構設計&lt;/li&gt;&#xA;&lt;li&gt;事件驅動架構&lt;/li&gt;&#xA;&lt;li&gt;RESTful API 設計原則&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;aws-服務整合&#34;&gt;AWS 服務整合&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;DynamoDB 資料庫操作&lt;/li&gt;&#xA;&lt;li&gt;S3 檔案上傳和管理&lt;/li&gt;&#xA;&lt;li&gt;SQS/SNS 訊息處理&lt;/li&gt;&#xA;&lt;li&gt;Lambda 觸發器設定&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💡 &lt;strong&gt;開發重點&lt;/strong&gt;: 多寫程式碼，實際操作AWS服務。&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>重構</title>
+      <link>http://localhost:1313/docs/aws/cert/dva/refactoring/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aws/cert/dva/refactoring/</guid>
+      <description>&lt;h1 id=&#34;重構-&#34;&gt;重構 🔄&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;考試比重：10%&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;將現有應用程式優化以更好地利用雲端服務的優勢。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要學習內容&#34;&gt;主要學習內容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;應用程式優化&#34;&gt;應用程式優化&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;性能瓶頸識別和解決&lt;/li&gt;&#xA;&lt;li&gt;資源使用效率提升&lt;/li&gt;&#xA;&lt;li&gt;快取策略實施&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;雲端原生重構&#34;&gt;雲端原生重構&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;單體應用拆分為微服務&lt;/li&gt;&#xA;&lt;li&gt;無伺服器架構遷移&lt;/li&gt;&#xA;&lt;li&gt;容器化改造&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;現代化策略&#34;&gt;現代化策略&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;12-Factor App 原則&lt;/li&gt;&#xA;&lt;li&gt;基礎設施即程式碼&lt;/li&gt;&#xA;&lt;li&gt;CI/CD 管道整合&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💡 &lt;strong&gt;重構重點&lt;/strong&gt;: 循序漸進，分階段進行應用程式現代化。 &amp;lt; /dev/null&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

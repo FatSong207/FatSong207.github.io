@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Solutions Architect Associate on 紀錄一些瑣碎事</title>
+    <link>http://localhost:1313/docs/aws/cert/saa/</link>
+    <description>Recent content in AWS Solutions Architect Associate on 紀錄一些瑣碎事</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 22 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/aws/cert/saa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>設計高效能架構</title>
+      <link>http://localhost:1313/docs/aws/cert/saa/design-performant/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aws/cert/saa/design-performant/</guid>
+      <description>&lt;h1 id=&#34;設計高效能架構-&#34;&gt;設計高效能架構 ⚡&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;考試比重：28%&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;專注於優化系統效能，確保應用程式能夠快速回應使用者需求。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要學習內容&#34;&gt;主要學習內容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;彈性運算解決方案&#34;&gt;彈性運算解決方案&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;EC2 執行個體類型選擇&lt;/li&gt;&#xA;&lt;li&gt;Auto Scaling 策略&lt;/li&gt;&#xA;&lt;li&gt;Lambda 無伺服器運算&lt;/li&gt;&#xA;&lt;li&gt;容器化部署 ECS/EKS&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;高效能儲存&#34;&gt;高效能儲存&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;EBS 磁碟區類型和 IOPS&lt;/li&gt;&#xA;&lt;li&gt;S3 儲存類別和存取模式&lt;/li&gt;&#xA;&lt;li&gt;EFS 檔案系統效能&lt;/li&gt;&#xA;&lt;li&gt;快取策略 ElastiCache&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;網路效能優化&#34;&gt;網路效能優化&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;CloudFront CDN 設定&lt;/li&gt;&#xA;&lt;li&gt;Direct Connect 專線&lt;/li&gt;&#xA;&lt;li&gt;VPC 端點和 PrivateLink&lt;/li&gt;&#xA;&lt;li&gt;負載平衡器選擇&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💡 &lt;strong&gt;效能重點&lt;/strong&gt;: 根據工作負載特性選擇最適合的服務配置。&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>設計安全的應用程式和架構</title>
+      <link>http://localhost:1313/docs/aws/cert/saa/design-secure/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aws/cert/saa/design-secure/</guid>
+      <description>&lt;h1 id=&#34;設計安全的應用程式和架構-&#34;&gt;設計安全的應用程式和架構 🔐&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;考試比重：24%&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;安全性是雲端架構的基石，涵蓋從存取控制到資料加密的各個層面。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要學習內容&#34;&gt;主要學習內容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;安全存取-aws-資源&#34;&gt;安全存取 AWS 資源&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IAM 角色和政策設計&lt;/li&gt;&#xA;&lt;li&gt;跨帳戶存取控制&lt;/li&gt;&#xA;&lt;li&gt;臨時憑證和 STS&lt;/li&gt;&#xA;&lt;li&gt;多重要素驗證&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;應用程式層級安全&#34;&gt;應用程式層級安全&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WAF Web 應用程式防火牆&lt;/li&gt;&#xA;&lt;li&gt;Shield DDoS 防護&lt;/li&gt;&#xA;&lt;li&gt;API Gateway 安全控制&lt;/li&gt;&#xA;&lt;li&gt;VPC 安全群組和 NACL&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;資料安全選項&#34;&gt;資料安全選項&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;靜態資料加密 KMS&lt;/li&gt;&#xA;&lt;li&gt;傳輸中加密 SSL/TLS&lt;/li&gt;&#xA;&lt;li&gt;憑證管理 Certificate Manager&lt;/li&gt;&#xA;&lt;li&gt;Secrets Manager 機密管理&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💡 &lt;strong&gt;安全重點&lt;/strong&gt;: 採用深度防禦策略，在每個層級實施安全控制。&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>設計成本優化的架構</title>
+      <link>http://localhost:1313/docs/aws/cert/saa/design-cost-optimized/</link>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/aws/cert/saa/design-cost-optimized/</guid>
+      <description>&lt;h1 id=&#34;設計成本優化的架構-&#34;&gt;設計成本優化的架構 💵&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;考試比重：18%&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;成本優化是持續的過程，需要平衡效能、可用性和成本三者之間的關係。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要學習內容&#34;&gt;主要學習內容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;成本效益儲存&#34;&gt;成本效益儲存&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;S3 儲存類別選擇&lt;/li&gt;&#xA;&lt;li&gt;生命週期政策設定&lt;/li&gt;&#xA;&lt;li&gt;EBS 磁碟區優化&lt;/li&gt;&#xA;&lt;li&gt;資料歸檔策略&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;運算成本優化&#34;&gt;運算成本優化&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Reserved Instances 策略&lt;/li&gt;&#xA;&lt;li&gt;Spot Instances 使用時機&lt;/li&gt;&#xA;&lt;li&gt;Right-sizing 執行個體大小&lt;/li&gt;&#xA;&lt;li&gt;排程自動化節省成本&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;網路成本控制&#34;&gt;網路成本控制&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;資料傳輸費用考量&lt;/li&gt;&#xA;&lt;li&gt;CloudFront 快取策略&lt;/li&gt;&#xA;&lt;li&gt;VPC 端點減少費用&lt;/li&gt;&#xA;&lt;li&gt;跨地區流量最佳化&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💡 &lt;strong&gt;成本重點&lt;/strong&gt;: 定期檢視和調整資源配置，追求最佳性價比。 &amp;lt; /dev/null&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

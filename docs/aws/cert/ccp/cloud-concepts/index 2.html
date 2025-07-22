@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AWS Cloud Practitioner 考試領域一：雲端概念，包含雲端運算基礎、AWS 價值主張、及雲端架構設計原則。">
+<meta name="author" content="Tom">
+
+<title>雲端概念 (Cloud Concepts) · 紀錄一些瑣碎事</title>
+
+<link rel="canonical" href="http://localhost:1313/docs/aws/cert/ccp/cloud-concepts/">
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/docs.min.c79fa7e9ed960154dbc4281e06351f27da62cc0cb1d7a927c7892938423971f1.css" integrity="">
+
+
+
+
+  <link rel="preconnect" href="https://-dsn.algolia.net" crossorigin />
+  
+  <link rel="stylesheet" href="/css/component/docsearch.min.cb5a1c417ef755c9bf17808583cb389f7f745310f105256d2c11714b3cfad6df.css" integrity=""/>
+
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/img/icon/favicon.ico">
+<link rel="icon" href="/img/icon/icon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/icon/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/icon/icon-180.png" sizes="180x180">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+
+  
+
+  </head>
+  <body>
+    <header id="site-header">
+  
+  <div id="site-header-brand">
+    <a href="/">紀錄一些瑣碎事</a>
+  </div>
+
+  
+  <div id="site-header-controls">
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="theme selector">
+        <i class="icon icon-brightness"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        <li role="menuitem"><button class="color-scheme" data-value="light"><i class="icon icon-light-mode"></i> Light</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="dark"><i class="icon icon-dark-mode"></i> Dark &nbsp;</button></li>
+        <li role="menuitem"><button class="color-scheme" data-value="night"><i class="icon icon-night-mode"></i> Night</button></li>
+      </ul>
+    </div>
+
+    
+    <div class="dropdown">
+      <button class="dropdown-btn" aria-haspopup="menu" aria-label="language selector">
+        <i class="icon icon-translate"></i>
+        <i class="icon icon-select"></i>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+        
+          <li role="menuitem"><a href="#">English</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+  <div id="site-header-menu">
+    <nav>
+      <ul>
+        
+        
+        
+          
+          <li><a href="/" ><i class='icon icon-home'></i>Home</a></li>
+        
+          
+          <li><a href="/docs"  class="active"><i class='icon icon-book'></i>Docs</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  
+  <div id="site-header-search"></div>
+</header>
+    
+<div id="site-main-content-wrapper">
+  
+  
+    
+
+
+<aside id="sidebar">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+
+  <div class="sticky"><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible " data-target="section-0">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            關於我
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-0" class="sidebar-pages collapsed">
+              
+                
+                <a class="sidebar-link " href="/docs/about-me/">
+                  about-me
+                </a>
+              
+            
+        </div>
+      </div><div class="sidebar-section-wrapper">
+        <strong class="sidebar-section collapsible active-section" data-target="section-1">
+          <span class="section-title-wrapper">
+            
+              <i class="icon icon-book section-icon"></i>
+            
+            AWS
+          </span>
+          <i class="toggle-icon">▼</i>
+        </strong>
+        
+        <div id="section-1" class="sidebar-pages ">
+              
+                
+                <a class="sidebar-link " href="/docs/aws/">
+                  aws
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/">
+                  aws/cert
+                </a>
+              
+            
+              
+                
+                <a class="sidebar-link " href="/docs/aws/cert/ccp/">
+                  aws/cert/CCP
+                </a>
+              
+            
+        </div>
+      </div>
+  </div>
+</aside>
+
+<style>
+.sidebar-section-wrapper {
+  margin-bottom: 10px;
+}
+
+.sidebar-section.collapsible {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-section.collapsible:hover {
+  opacity: 0.8;
+}
+
+.sidebar-section.active-section {
+  font-weight: bold;
+  color: #007acc;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.sidebar-section.active-section .section-icon {
+  color: #007acc;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: #666;
+  font-style: normal;
+  user-select: none;
+}
+
+.sidebar-section.collapsible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-pages {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.sidebar-pages.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.sidebar-pages .sidebar-link {
+  display: block;
+  padding: 8px 0 8px 20px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pages .sidebar-link:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+}
+
+.sidebar-pages .sidebar-link.active-link:hover {
+  background-color: #005a9e;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const collapsibleSections = document.querySelectorAll('.sidebar-section.collapsible');
+  
+  collapsibleSections.forEach(function(section) {
+    section.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      
+      if (isExpanded) {
+        targetElement.classList.add('collapsed');
+      } else {
+        targetElement.classList.remove('collapsed');
+      }
+    });
+    
+    
+    const targetId = section.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    const isCollapsed = targetElement.classList.contains('collapsed');
+    section.setAttribute('aria-expanded', !isCollapsed);
+  });
+});
+</script>
+  
+  <main>
+    <article id="article">
+      <nav id="article-nav">
+  <button id="article-nav-menu-btn"><i class="icon icon-menu"></i> On this section</button>
+  <button id="article-nav-toc-btn"><i class="icon icon-toc"></i> On this page</button>
+</nav>
+      <header id="article-header">
+  <h1>雲端概念 (Cloud Concepts)</h1>
+</header>
+      <div id="article-content">
+        
+        
+        <h1 id="雲端概念-cloud-concepts-">雲端概念 (Cloud Concepts) ☁️</h1>
+<p><strong>考試比重：26%</strong></p>
+<p>這個領域涵蓋雲端運算的基本概念、AWS 雲端的價值主張，以及雲端架構的設計原則。</p>
+<h2 id="雲端運算基礎">雲端運算基礎</h2>
+<h3 id="什麼是雲端運算">什麼是雲端運算？</h3>
+<p>雲端運算是透過網際網路按需提供 IT 資源，採用隨用隨付的定價模式。</p>
+<h4 id="雲端運算的特徵">雲端運算的特徵</h4>
+<ul>
+<li><strong>按需自助服務</strong>: 使用者可以自動獲取運算能力</li>
+<li><strong>廣泛的網路存取</strong>: 可透過網路從各種裝置存取</li>
+<li><strong>資源池化</strong>: 資源被池化以服務多個使用者</li>
+<li><strong>快速彈性</strong>: 資源可以快速擴展或縮減</li>
+<li><strong>可測量的服務</strong>: 使用情況可以被監控和計量</li>
+</ul>
+<h3 id="雲端部署模型">雲端部署模型</h3>
+<h4 id="1-公有雲-public-cloud">1. 公有雲 (Public Cloud)</h4>
+<ul>
+<li>由第三方雲端服務提供商擁有和操作</li>
+<li>資源透過網際網路提供給公眾</li>
+<li><strong>例子</strong>: AWS、Microsoft Azure、Google Cloud</li>
+</ul>
+<h4 id="2-私有雲-private-cloud">2. 私有雲 (Private Cloud)</h4>
+<ul>
+<li>專為單一組織使用</li>
+<li>可在組織內部或由第三方管理</li>
+<li>提供更高的控制和安全性</li>
+</ul>
+<h4 id="3-混合雲-hybrid-cloud">3. 混合雲 (Hybrid Cloud)</h4>
+<ul>
+<li>結合公有雲和私有雲</li>
+<li>資料和應用程式可在兩者間移動</li>
+<li>提供更大的部署靈活性</li>
+</ul>
+<h2 id="aws-雲端的價值主張">AWS 雲端的價值主張</h2>
+<h3 id="1-經濟效益">1. 經濟效益</h3>
+<h4 id="資本支出轉為營運支出">資本支出轉為營運支出</h4>
+<ul>
+<li><strong>傳統模式</strong>: 前期大量資本投資</li>
+<li><strong>雲端模式</strong>: 按使用量付費，降低初始成本</li>
+</ul>
+<h4 id="規模經濟效益">規模經濟效益</h4>
+<ul>
+<li>AWS 的大規模採購降低單位成本</li>
+<li>客戶可以享受更低的價格</li>
+</ul>
+<h4 id="無需容量規劃">無需容量規劃</h4>
+<ul>
+<li>不需要預測未來的容量需求</li>
+<li>避免過度佈建或容量不足</li>
+</ul>
+<h3 id="2-速度與敏捷性">2. 速度與敏捷性</h3>
+<h4 id="快速佈建資源">快速佈建資源</h4>
+<ul>
+<li>幾分鐘內即可啟動新的伺服器</li>
+<li>快速回應市場變化</li>
+</ul>
+<h4 id="全球部署">全球部署</h4>
+<ul>
+<li>在全球多個地區快速部署應用程式</li>
+<li>靠近使用者，降低延遲</li>
+</ul>
+<h4 id="實驗成本降低">實驗成本降低</h4>
+<ul>
+<li>快速創建測試環境</li>
+<li>失敗的實驗成本較低</li>
+</ul>
+<h3 id="3-可靠性與安全性">3. 可靠性與安全性</h3>
+<h4 id="高可用性">高可用性</h4>
+<ul>
+<li>多個可用區域 (AZ) 設計</li>
+<li>自動容錯移轉機制</li>
+</ul>
+<h4 id="安全性">安全性</h4>
+<ul>
+<li>AWS 負責基礎設施安全</li>
+<li>提供多層安全防護</li>
+</ul>
+<h2 id="aws-全球基礎設施">AWS 全球基礎設施</h2>
+<h3 id="地區-regions">地區 (Regions)</h3>
+<ul>
+<li>全球多個地理區域</li>
+<li>每個地區包含多個可用區域</li>
+<li>選擇考量：延遲、成本、法規要求</li>
+</ul>
+<h3 id="可用區域-availability-zones-az">可用區域 (Availability Zones, AZ)</h3>
+<ul>
+<li>每個地區內的獨立資料中心</li>
+<li>提供故障隔離</li>
+<li>高速連接但物理分離</li>
+</ul>
+<h3 id="邊緣站點-edge-locations">邊緣站點 (Edge Locations)</h3>
+<ul>
+<li>用於 CloudFront CDN</li>
+<li>更接近終端使用者</li>
+<li>降低延遲，提升效能</li>
+</ul>
+<h2 id="雲端架構設計原則">雲端架構設計原則</h2>
+<h3 id="1-設計以應對故障">1. 設計以應對故障</h3>
+<ul>
+<li>假設一切都會故障</li>
+<li>建立冗餘和自動恢復機制</li>
+<li>使用多個 AZ 部署</li>
+</ul>
+<h3 id="2-解除元件耦合">2. 解除元件耦合</h3>
+<ul>
+<li>避免緊密耦合的架構</li>
+<li>使用佇列、通知和負載平衡器</li>
+<li>元件故障不會影響整個系統</li>
+</ul>
+<h3 id="3-實現彈性而非固定伺服器">3. 實現彈性而非固定伺服器</h3>
+<ul>
+<li>使用自動擴展</li>
+<li>根據需求動態調整資源</li>
+<li>避免單點故障</li>
+</ul>
+<h3 id="4-安全性設計">4. 安全性設計</h3>
+<ul>
+<li>在每個層級實施安全控制</li>
+<li>使用最小權限原則</li>
+<li>加密靜態和傳輸中的資料</li>
+</ul>
+<h3 id="5-平行化思考">5. 平行化思考</h3>
+<ul>
+<li>將工作負載分散到多個資源</li>
+<li>提高處理效率</li>
+<li>利用雲端的水平擴展能力</li>
+</ul>
+<h2 id="考試重點">考試重點</h2>
+<h3 id="必須了解的概念">必須了解的概念</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 雲端運算的 5 個特徵</li>
+<li><input checked="" disabled="" type="checkbox"> 3 種雲端部署模型的差異</li>
+<li><input checked="" disabled="" type="checkbox"> AWS 全球基礎設施的組成</li>
+<li><input checked="" disabled="" type="checkbox"> 總擁有成本 (TCO) 的概念</li>
+<li><input checked="" disabled="" type="checkbox"> 彈性與擴展性的區別</li>
+</ul>
+<h3 id="常見考題類型">常見考題類型</h3>
+<ol>
+<li><strong>情境題</strong>: 給定業務需求，選擇最適合的雲端部署模型</li>
+<li><strong>概念題</strong>: 雲端運算特徵的定義和應用</li>
+<li><strong>架構題</strong>: AWS 設計原則在實際場景中的應用</li>
+</ol>
+<h3 id="學習建議">學習建議</h3>
+<ul>
+<li>理解雲端與傳統 IT 的差異</li>
+<li>熟悉 AWS 全球基礎設施的術語</li>
+<li>掌握雲端經濟學的核心概念</li>
+<li>實際體驗 AWS 控制台的地區選擇</li>
+</ul>
+<hr>
+<blockquote>
+<p>💡 <strong>重點提醒</strong>: 雲端概念是整個 CCP 考試的基礎，確實理解這些概念對於後續學習其他領域非常重要！</p></blockquote>
+
+      </div>
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+        
+
+        
+          
+        
+
+      
+    
+
+
+<footer id="article-footer">
+  <time id="article-last-updated" datetime="2025-07-22"><i class="icon icon-calendar"></i>&nbsp;Last updated: 2025-07-22</time>
+
+  
+    <a id="article-prev-link" href="/docs/aws/cert/ccp/"><i class="icon icon-prev icon-colored"></i> Prev</a>
+  
+
+  
+</footer>
+    </article>
+    <aside id="toc">
+  <span class="btn-close"><i class="icon icon-close"></i></span>
+  <div class="sticky">
+    <strong><i class="icon icon-toc"></i> On this page</strong>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#雲端運算基礎">雲端運算基礎</a>
+      <ul>
+        <li><a href="#什麼是雲端運算">什麼是雲端運算？</a></li>
+        <li><a href="#雲端部署模型">雲端部署模型</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-雲端的價值主張">AWS 雲端的價值主張</a>
+      <ul>
+        <li><a href="#1-經濟效益">1. 經濟效益</a></li>
+        <li><a href="#2-速度與敏捷性">2. 速度與敏捷性</a></li>
+        <li><a href="#3-可靠性與安全性">3. 可靠性與安全性</a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-全球基礎設施">AWS 全球基礎設施</a>
+      <ul>
+        <li><a href="#地區-regions">地區 (Regions)</a></li>
+        <li><a href="#可用區域-availability-zones-az">可用區域 (Availability Zones, AZ)</a></li>
+        <li><a href="#邊緣站點-edge-locations">邊緣站點 (Edge Locations)</a></li>
+      </ul>
+    </li>
+    <li><a href="#雲端架構設計原則">雲端架構設計原則</a>
+      <ul>
+        <li><a href="#1-設計以應對故障">1. 設計以應對故障</a></li>
+        <li><a href="#2-解除元件耦合">2. 解除元件耦合</a></li>
+        <li><a href="#3-實現彈性而非固定伺服器">3. 實現彈性而非固定伺服器</a></li>
+        <li><a href="#4-安全性設計">4. 安全性設計</a></li>
+        <li><a href="#5-平行化思考">5. 平行化思考</a></li>
+      </ul>
+    </li>
+    <li><a href="#考試重點">考試重點</a>
+      <ul>
+        <li><a href="#必須了解的概念">必須了解的概念</a></li>
+        <li><a href="#常見考題類型">常見考題類型</a></li>
+        <li><a href="#學習建議">學習建議</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</aside>
+  </main>
+</div>
+
+    <footer id="site-footer">
+  
+  <div id="site-footer-copyright">
+    <a href="https://FatSong207.com" target="_blank">
+      <i class="icon icon-copyright"></i> 2025 Tom
+    </a>
+  </div>
+
+  
+  <div id="site-footer-social">
+
+    
+
+    
+
+    
+    <a href="https://github.com/FatSong207" target="_blank" aria-label="github url">
+      <i class="icon icon-github icon-colored"></i>
+    </a>
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-fund">
+
+    
+
+    
+
+  </div>
+
+  
+  <div id="site-footer-love">
+    Made with <i class="icon icon-love icon-colored"></i> &nbsp;from&nbsp;<a href="https://docura.github.io/" target="_blank">Docura</a>
+  </div>
+</footer>
+    
+
+
+
+
+
+
+<script type="text/javascript" src="/js/base.min.js"></script>
+
+
+
+  
+  <script src="/js/component/docsearch.min.js"></script>
+  <script type="application/javascript">
+      docsearch({
+          container: '#site-header-search',
+          appId: '',
+          indexName: '',
+          apiKey: '',
+      });
+  </script>
+
+
+<script type="application/javascript">
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js?2025-07-22')
+            .catch(function(err) {console.error('ServiceWorker registration failed: ', err);});
+    }
+</script>
+  </body>
+</html>
